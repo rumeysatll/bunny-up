@@ -23,6 +23,4 @@ Climb through six themed sections while navigating different platform mechanics,
 
 ## Play
 
-The Windows version is available on itch.io.
-
-*itch.io link coming soon.*
+🎮 [Play Bunny Up on itch.io](https://rumeysatll.itch.io/bunny-up)
