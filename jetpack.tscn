@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bcpyofi3rgolb"]
+
+[ext_resource type="Texture2D" uid="uid://di2iok73abcya" path="res://assets/PNG/Items/jetpack_item.png" id="1_8aj6d"]
+[ext_resource type="Script" uid="uid://prv8ohsmmdwc" path="res://jetpack.gd" id="1_ol6xp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcsta"]
+size = Vector2(58, 47)
+
+[node name="JetpackItem" type="Area2D" unique_id=679273608]
+script = ExtResource("1_ol6xp")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1457254822]
+texture = ExtResource("1_8aj6d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1255193574]
+position = Vector2(-1, 0.5)
+shape = SubResource("RectangleShape2D_qcsta")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://b7anljdyv7tpg"]
+
+[ext_resource type="Script" uid="uid://w38v7uug7rsa" path="res://scenes/platform_sand_collapse.gd" id="1_4cvbr"]
+[ext_resource type="Texture2D" uid="uid://cr4q8e3ypqcbu" path="res://assets/PNG/Environment/ground_sand_small.png" id="2_4cvbr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcsta"]
+size = Vector2(160, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcf85"]
+size = Vector2(153, 29)
+
+[node name="platform_sand_collapse" type="AnimatableBody2D" unique_id=1270791175]
+collision_layer = 2
+script = ExtResource("1_4cvbr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2132700614]
+position = Vector2(-23, -6.5)
+shape = SubResource("RectangleShape2D_qcsta")
+
+[node name="GroundSand" type="Sprite2D" parent="." unique_id=1613515303]
+position = Vector2(2, -2)
+
+[node name="Area2D" type="Area2D" parent="." unique_id=43371563]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1290158693]
+position = Vector2(-15.5, -35.5)
+shape = SubResource("RectangleShape2D_jcf85")
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=810583419]
+wait_time = 3.0
+one_shot = true
+
+[node name="GroundSandSmall" type="Sprite2D" parent="." unique_id=1293060199]
+position = Vector2(-17, -7)
+texture = ExtResource("2_4cvbr")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bkhhcxpodani3"]
+
+[ext_resource type="Script" uid="uid://lkxs4aplsqtl" path="res://scenes/platform_grass_breakable.gd" id="1_qxop8"]
+[ext_resource type="Texture2D" uid="uid://bwifkuy87vs5s" path="res://assets/PNG/Environment/ground_wood_broken.png" id="2_qxop8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfxs"]
+size = Vector2(341, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3hbkf"]
+size = Vector2(315, 38)
+
+[node name="Platform_wood_breakable" type="StaticBody2D" unique_id=723456330]
+collision_layer = 2
+script = ExtResource("1_qxop8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=148987622]
+position = Vector2(4.5, -5)
+shape = SubResource("RectangleShape2D_hcfxs")
+
+[node name="GroundGrassBroken" type="Sprite2D" parent="." unique_id=497501533]
+texture = ExtResource("2_qxop8")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=636613231]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=2020267310]
+position = Vector2(4.5, -27)
+shape = SubResource("RectangleShape2D_3hbkf")
+
+[node name="BreakTimer" type="Timer" parent="." unique_id=1295226413]
+wait_time = 0.409
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="." unique_id=504032740]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="BreakTimer" to="." method="_on_break_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

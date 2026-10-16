@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dap2qenwwmteq"]
+
+[ext_resource type="Texture2D" uid="uid://do8s21blbeiy7" path="res://assets/PNG/Environment/ground_wood.png" id="1_in6fm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcsta"]
+size = Vector2(348, 71)
+
+[node name="StaticBody2D" type="StaticBody2D" unique_id=1340440814]
+position = Vector2(6, 0)
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=568014589]
+position = Vector2(191, 35.5)
+shape = SubResource("RectangleShape2D_qcsta")
+
+[node name="GroundWood" type="Sprite2D" parent="." unique_id=2026452603]
+position = Vector2(190, 46)
+texture = ExtResource("1_in6fm")

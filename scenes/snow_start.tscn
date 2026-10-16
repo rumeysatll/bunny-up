@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b14bydx865kw8"]
+
+[ext_resource type="Script" uid="uid://dcbdvdh0ffijy" path="res://scenes/snow_start.gd" id="1_y5alm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcsta"]
+size = Vector2(2013, 25)
+
+[node name="SnowStart" type="Area2D" unique_id=1189107431]
+script = ExtResource("1_y5alm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1417329609]
+shape = SubResource("RectangleShape2D_qcsta")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

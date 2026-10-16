@@ -1,0 +1,117 @@
+[gd_scene format=3 uid="uid://e2sngdql7sca"]
+
+[ext_resource type="Script" uid="uid://bpsm7t7sl7oeg" path="res://scenes/player.gd" id="1_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://6nlaw5ysl53e" path="res://assets/PNG/Players/bunny2_stand.png" id="2_qlg0r"]
+[ext_resource type="Texture2D" uid="uid://dvyldlap4tk2r" path="res://assets/PNG/Items/jetpack.png" id="2_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://diy0ifog3kdps" path="res://assets/PNG/Players/bunny2_jump.png" id="3_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://16u10lndche0" path="res://assets/PNG/Players/bunny2_walk2.png" id="4_fjrip"]
+[ext_resource type="Texture2D" uid="uid://45c1uvvlmw08" path="res://assets/PNG/Players/bunny2_walk1.png" id="5_smehm"]
+
+[sub_resource type="Gradient" id="Gradient_fjrip"]
+offsets = PackedFloat32Array(0, 0.5409836, 0.9918033)
+colors = PackedColorArray(1, 0.95686275, 0.36078432, 1, 1, 0.70980394, 0.18039216, 1, 1, 0.41568628, 0.14117648, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_igfna"]
+gradient = SubResource("Gradient_fjrip")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qcsta"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+spread = 20.0
+initial_velocity_min = 150.0
+initial_velocity_max = 220.0
+gravity = Vector3(0, 98, 0)
+scale_min = 5.0
+scale_max = 7.0
+color_ramp = SubResource("GradientTexture1D_igfna")
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qlg0r"]
+radius = 64.0
+height = 200.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcfxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qlg0r")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_tuyoq")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_fjrip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_smehm")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 6.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=56831980 groups=["player"]]
+scale = Vector2(0.85, 0.85)
+collision_mask = 2
+script = ExtResource("1_qhqgy")
+
+[node name="JetpackVisual" type="Node2D" parent="." unique_id=2118433110]
+visible = false
+scale = Vector2(1.0000001, 1.0000001)
+
+[node name="Sprite2D" type="Sprite2D" parent="JetpackVisual" unique_id=929220752]
+position = Vector2(1.1764708, -42.35295)
+scale = Vector2(1.0000002, 1.0000002)
+texture = ExtResource("2_tuyoq")
+
+[node name="LeftFlame" type="GPUParticles2D" parent="JetpackVisual" unique_id=1573011123]
+position = Vector2(-31.7647, 31.7647)
+emitting = false
+amount = 40
+lifetime = 0.25
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_qcsta")
+
+[node name="RightFlame" type="GPUParticles2D" parent="JetpackVisual" unique_id=2051129597]
+position = Vector2(36.47058, 34.11764)
+emitting = false
+amount = 40
+lifetime = 0.25
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_qcsta")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=365677468]
+position = Vector2(1, -54)
+shape = SubResource("CapsuleShape2D_qlg0r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1933298665]
+position = Vector2(0, -63.75)
+sprite_frames = SubResource("SpriteFrames_hcfxs")
+animation = &"idle"
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=63527121]
+zoom = Vector2(0.5, 0.5)
+
+[node name="Timer" type="Timer" parent="." unique_id=1993149570]
+wait_time = 1.2
+one_shot = true
+
+[node name="KnockbackTimer" type="Timer" parent="." unique_id=660274742]
+wait_time = 0.3
+one_shot = true
+
+[node name="JetpackTimer" type="Timer" parent="." unique_id=1726811188]
+wait_time = 20.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
+[connection signal="timeout" from="JetpackTimer" to="." method="_on_jetpack_timer_timeout"]

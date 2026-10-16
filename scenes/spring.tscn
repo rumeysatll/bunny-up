@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://0vsgplktrle1"]
+
+[ext_resource type="Script" uid="uid://cjm7xrh6lbimj" path="res://spring.gd" id="1_iudvb"]
+[ext_resource type="Texture2D" uid="uid://cp4gnowm3uysg" path="res://assets/PNG/Items/spring_out.png" id="2_l13eo"]
+[ext_resource type="Texture2D" uid="uid://djk0k5huwf7qi" path="res://assets/PNG/Items/spring.png" id="3_yrxyh"]
+[ext_resource type="Texture2D" uid="uid://chbbo1e8128c7" path="res://assets/PNG/Items/spring_in.png" id="4_l7nqg"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qcsta"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": ExtResource("2_l13eo")
+}, {
+"duration": 0.8,
+"texture": ExtResource("3_yrxyh")
+}, {
+"duration": 0.8,
+"texture": ExtResource("4_l7nqg")
+}, {
+"duration": 0.8,
+"texture": ExtResource("2_l13eo")
+}],
+"loop": 0,
+"name": &"spring",
+"speed": 6.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcf85"]
+size = Vector2(139, 17)
+
+[node name="Spring" type="Area2D" unique_id=2124336456]
+script = ExtResource("1_iudvb")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1048126314]
+sprite_frames = SubResource("SpriteFrames_qcsta")
+animation = &"spring"
+frame = 3
+frame_progress = 0.5425004
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=508247153]
+position = Vector2(1, -44)
+shape = SubResource("RectangleShape2D_jcf85")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

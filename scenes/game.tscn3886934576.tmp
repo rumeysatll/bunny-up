@@ -1,0 +1,2272 @@
+[gd_scene format=3 uid="uid://dnedrtuhhn7la"]
+
+[ext_resource type="Script" uid="uid://cu2ket7mloi3x" path="res://scenes/game.gd" id="1_p57ef"]
+[ext_resource type="PackedScene" uid="uid://e2sngdql7sca" path="res://scenes/player.tscn" id="1_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://bkbh4ngwhyjwa" path="res://scenes/platform_grass_breakable.tscn" id="2_lbhrr"]
+[ext_resource type="PackedScene" uid="uid://ddfgkg3ombgkc" path="res://scenes/platform.tscn" id="2_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://bxps0k3vl3jeh" path="res://scenes/platform_grass_moving.tscn" id="3_iywne"]
+[ext_resource type="PackedScene" uid="uid://c60ne5rk1ccs0" path="res://scenes/platform_wood_moving_vertical.tscn" id="5_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://brl75u5fij5a8" path="res://scenes/collectibles/coin.tscn" id="5_iywne"]
+[ext_resource type="PackedScene" uid="uid://dap2qenwwmteq" path="res://scenes/platform_wood.tscn" id="6_0tnpc"]
+[ext_resource type="PackedScene" uid="uid://dlepwjypqmxmj" path="res://scenes/enemies/enemy_helicopter.tscn" id="7_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://bkhhcxpodani3" path="res://scenes/platform_wood_breakable.tscn" id="7_vtaks"]
+[ext_resource type="PackedScene" uid="uid://b7anljdyv7tpg" path="res://scenes/platform_sand_collapse.tscn" id="8_dinhu"]
+[ext_resource type="PackedScene" uid="uid://ces3hr2pr65nx" path="res://scenes/platform_sand_breakable.tscn" id="9_kvuet"]
+[ext_resource type="PackedScene" uid="uid://bllmd6dk8brjj" path="res://scenes/platform_sand_normal.tscn" id="10_trtic"]
+[ext_resource type="PackedScene" uid="uid://ir4uf8dx0j8l" path="res://scenes/platform_snow.tscn" id="11_264po"]
+[ext_resource type="PackedScene" uid="uid://dhh0wt7ethwvo" path="res://scenes/enemies/enemy_spikeman.tscn" id="11_kvpfn"]
+[ext_resource type="PackedScene" uid="uid://bk0osgokljofy" path="res://scenes/platform_snow_small.tscn" id="12_1kice"]
+[ext_resource type="PackedScene" uid="uid://b5jwclh1rbdlf" path="res://scenes/platform_snow_breakable.tscn" id="13_5newe"]
+[ext_resource type="PackedScene" uid="uid://cx5h1yrw8wlaa" path="res://scenes/collectibles/health_power_up.tscn" id="13_ca42v"]
+[ext_resource type="PackedScene" uid="uid://c3yl05uyytj1y" path="res://scenes/platform_cake_normal.tscn" id="14_qnb83"]
+[ext_resource type="PackedScene" uid="uid://drldtfid25hj6" path="res://scenes/collectibles/health_full_power_up.tscn" id="14_rysoc"]
+[ext_resource type="PackedScene" uid="uid://600yh3trr4ea" path="res://scenes/snow_particles.tscn" id="15_bt5mj"]
+[ext_resource type="PackedScene" uid="uid://0vsgplktrle1" path="res://scenes/spring.tscn" id="15_ir15t"]
+[ext_resource type="PackedScene" uid="uid://c46yj75bmrd6r" path="res://scenes/platform_cake_moving.tscn" id="15_sww3w"]
+[ext_resource type="PackedScene" uid="uid://dltgd5nq4o0kb" path="res://scenes/platform_cake_breakable.tscn" id="16_sww3w"]
+[ext_resource type="PackedScene" uid="uid://dmvbqf6w20ufs" path="res://scenes/enemies/enemy_wingman.tscn" id="17_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://d247bykym4ty8" path="res://scenes/windzone.tscn" id="22_37s47"]
+[ext_resource type="PackedScene" uid="uid://bcpyofi3rgolb" path="res://jetpack.tscn" id="22_suyxu"]
+[ext_resource type="PackedScene" uid="uid://b14bydx865kw8" path="res://scenes/snow_start.tscn" id="24_e1j6l"]
+[ext_resource type="PackedScene" uid="uid://bp7yxkwxeuv8w" path="res://scenes/snow_end.tscn" id="25_pl11u"]
+[ext_resource type="PackedScene" uid="uid://dyk2or0krfneb" path="res://scenes/finish_area.tscn" id="30_sgl2t"]
+
+[node name="Game" type="Node2D" unique_id=647596795]
+script = ExtResource("1_p57ef")
+
+[node name="Background" type="CanvasLayer" parent="." unique_id=1826481585]
+layer = -1
+
+[node name="ColorRect" type="ColorRect" parent="Background" unique_id=1320174213]
+anchors_preset = -1
+anchor_left = 0.003
+anchor_top = -78.173004
+anchor_right = 1.376
+anchor_bottom = 1.0
+offset_left = -0.4560001
+offset_top = 89.10547
+offset_right = -0.15209961
+offset_bottom = 235.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+color = Color(0.6555676, 0.8594561, 0.974886, 1)
+
+[node name="Platforms" type="Node2D" parent="." unique_id=2058946540]
+position = Vector2(0, -7109)
+
+[node name="Normal_grass" type="Node2D" parent="Platforms" unique_id=1264860586]
+
+[node name="Platform3" parent="Platforms/Normal_grass" unique_id=288305107 instance=ExtResource("2_lnu2h")]
+position = Vector2(238, 6892)
+
+[node name="Platform" parent="Platforms/Normal_grass" unique_id=374772248 instance=ExtResource("2_lnu2h")]
+position = Vector2(187, 7374)
+
+[node name="Platform2" parent="Platforms/Normal_grass" unique_id=2075047211 instance=ExtResource("2_lnu2h")]
+position = Vector2(834, 7142)
+
+[node name="Platform4" parent="Platforms/Normal_grass" unique_id=988024332 instance=ExtResource("2_lnu2h")]
+position = Vector2(883, 6683)
+
+[node name="Platform5" parent="Platforms/Normal_grass" unique_id=1840139959 instance=ExtResource("2_lnu2h")]
+position = Vector2(931, 6164)
+
+[node name="Platform6" parent="Platforms/Normal_grass" unique_id=1517229039 instance=ExtResource("2_lnu2h")]
+position = Vector2(266, 5577)
+
+[node name="Platform7" parent="Platforms/Normal_grass" unique_id=1116620470 instance=ExtResource("2_lnu2h")]
+position = Vector2(666, 4872)
+
+[node name="Platform8" parent="Platforms/Normal_grass" unique_id=344304276 instance=ExtResource("2_lnu2h")]
+position = Vector2(216, 4667)
+
+[node name="Platform9" parent="Platforms/Normal_grass" unique_id=1966469984 instance=ExtResource("2_lnu2h")]
+position = Vector2(586, 4380)
+
+[node name="Platform10" parent="Platforms/Normal_grass" unique_id=1327950420 instance=ExtResource("2_lnu2h")]
+position = Vector2(304, 3825)
+
+[node name="Platform11" parent="Platforms/Normal_grass" unique_id=1270987413 instance=ExtResource("2_lnu2h")]
+position = Vector2(1357, 2787)
+
+[node name="Platform12" parent="Platforms/Normal_grass" unique_id=2067308457 instance=ExtResource("2_lnu2h")]
+position = Vector2(300, 2263)
+
+[node name="Platform13" parent="Platforms/Normal_grass" unique_id=178498041 instance=ExtResource("2_lnu2h")]
+position = Vector2(832, 1436)
+
+[node name="Platform14" parent="Platforms/Normal_grass" unique_id=1442170460 instance=ExtResource("2_lnu2h")]
+position = Vector2(204, 1222)
+
+[node name="Platform15" parent="Platforms/Normal_grass" unique_id=1609822545 instance=ExtResource("2_lnu2h")]
+position = Vector2(1340, 694)
+
+[node name="Platform16" parent="Platforms/Normal_grass" unique_id=1781515580 instance=ExtResource("2_lnu2h")]
+position = Vector2(696, 462)
+
+[node name="Platform17" parent="Platforms/Normal_grass" unique_id=1537317499 instance=ExtResource("2_lnu2h")]
+position = Vector2(1230, 196)
+
+[node name="Breakable_grass" type="Node2D" parent="Platforms" unique_id=1470986777]
+
+[node name="Platform_grass_breakable" parent="Platforms/Breakable_grass" unique_id=723456330 instance=ExtResource("2_lbhrr")]
+position = Vector2(300, 6401)
+
+[node name="Platform_grass_breakable2" parent="Platforms/Breakable_grass" unique_id=1976006789 instance=ExtResource("2_lbhrr")]
+position = Vector2(1224, 5047)
+
+[node name="Platform_grass_breakable3" parent="Platforms/Breakable_grass" unique_id=532372525 instance=ExtResource("2_lbhrr")]
+position = Vector2(708, 3549)
+
+[node name="Platform_grass_breakable4" parent="Platforms/Breakable_grass" unique_id=1372481842 instance=ExtResource("2_lbhrr")]
+position = Vector2(1174, 3264)
+
+[node name="Platform_grass_breakable5" parent="Platforms/Breakable_grass" unique_id=1725171696 instance=ExtResource("2_lbhrr")]
+position = Vector2(744, 2549)
+
+[node name="Platform_grass_breakable6" parent="Platforms/Breakable_grass" unique_id=1936451777 instance=ExtResource("2_lbhrr")]
+position = Vector2(1330, 1715)
+
+[node name="Moving_grass" type="Node2D" parent="Platforms" unique_id=1052180636]
+
+[node name="Platform_grass_moving" parent="Platforms/Moving_grass" unique_id=353711117 instance=ExtResource("3_iywne")]
+position = Vector2(419, 5886)
+
+[node name="Platform_grass_moving2" parent="Platforms/Moving_grass" unique_id=21637274 instance=ExtResource("3_iywne")]
+position = Vector2(876, 5311)
+
+[node name="Platform_grass_moving3" parent="Platforms/Moving_grass" unique_id=125595548 instance=ExtResource("3_iywne")]
+position = Vector2(1152, 4123)
+
+[node name="Platform_grass_moving4" parent="Platforms/Moving_grass" unique_id=835572566 instance=ExtResource("3_iywne")]
+position = Vector2(693, 3030)
+
+[node name="Platform_grass_moving5" parent="Platforms/Moving_grass" unique_id=384733186 instance=ExtResource("3_iywne")]
+position = Vector2(854, 2027)
+
+[node name="Platform_grass_moving6" parent="Platforms/Moving_grass" unique_id=2089379432 instance=ExtResource("3_iywne")]
+position = Vector2(623, 885)
+
+[node name="Platform_grass_moving7" parent="Platforms/Moving_grass" unique_id=286303182 instance=ExtResource("3_iywne")]
+position = Vector2(709, -58)
+
+[node name="Wood" type="Node2D" parent="Platforms" unique_id=749470938]
+
+[node name="Normal" type="Node2D" parent="Platforms/Wood" unique_id=1619129746]
+
+[node name="Normal_wood" parent="Platforms/Wood/Normal" unique_id=1340440814 instance=ExtResource("6_0tnpc")]
+position = Vector2(602, -764)
+
+[node name="Normal_wood2" parent="Platforms/Wood/Normal" unique_id=389304959 instance=ExtResource("6_0tnpc")]
+position = Vector2(588, -1302)
+
+[node name="Normal_wood3" parent="Platforms/Wood/Normal" unique_id=1978680926 instance=ExtResource("6_0tnpc")]
+position = Vector2(1083, -2047)
+
+[node name="Normal_wood4" parent="Platforms/Wood/Normal" unique_id=416664477 instance=ExtResource("6_0tnpc")]
+position = Vector2(426, -2336)
+
+[node name="Normal_wood5" parent="Platforms/Wood/Normal" unique_id=1588061916 instance=ExtResource("6_0tnpc")]
+position = Vector2(439, -5351)
+
+[node name="Normal_wood6" parent="Platforms/Wood/Normal" unique_id=232805386 instance=ExtResource("6_0tnpc")]
+position = Vector2(213, -3400)
+
+[node name="Normal_wood7" parent="Platforms/Wood/Normal" unique_id=861190010 instance=ExtResource("6_0tnpc")]
+position = Vector2(821, -4804)
+
+[node name="Normal_wood8" parent="Platforms/Wood/Normal" unique_id=1334481983 instance=ExtResource("6_0tnpc")]
+position = Vector2(871, -5592)
+
+[node name="Normal_wood9" parent="Platforms/Wood/Normal" unique_id=1809704815 instance=ExtResource("6_0tnpc")]
+position = Vector2(1215, -5872)
+
+[node name="Normal_wood10" parent="Platforms/Wood/Normal" unique_id=1883117143 instance=ExtResource("6_0tnpc")]
+position = Vector2(512, -6522)
+
+[node name="Normal_wood11" parent="Platforms/Wood/Normal" unique_id=198076766 instance=ExtResource("6_0tnpc")]
+position = Vector2(757, -7275)
+
+[node name="moving_vertical" type="Node2D" parent="Platforms/Wood" unique_id=691869938]
+
+[node name="Platform_wood_moving_vertical2" parent="Platforms/Wood/moving_vertical" unique_id=764460583 instance=ExtResource("5_0tnpc")]
+position = Vector2(1398, -275)
+
+[node name="Platform_wood_moving_vertical3" parent="Platforms/Wood/moving_vertical" unique_id=946510007 instance=ExtResource("5_0tnpc")]
+position = Vector2(226, -1957)
+
+[node name="Platform_wood_moving_vertical4" parent="Platforms/Wood/moving_vertical" unique_id=1255577936 instance=ExtResource("5_0tnpc")]
+position = Vector2(1414, -3339)
+
+[node name="Platform_wood_moving_vertical5" parent="Platforms/Wood/moving_vertical" unique_id=1193519194 instance=ExtResource("5_0tnpc")]
+position = Vector2(168, -4756)
+
+[node name="Breakable" type="Node2D" parent="Platforms/Wood" unique_id=508397423]
+
+[node name="Platform_wood_breakable" parent="Platforms/Wood/Breakable" unique_id=345184325 instance=ExtResource("7_vtaks")]
+position = Vector2(232, -972)
+
+[node name="Platform_wood_breakable2" parent="Platforms/Wood/Breakable" unique_id=198394877 instance=ExtResource("7_vtaks")]
+position = Vector2(1354, -1508)
+
+[node name="Platform_wood_breakable3" parent="Platforms/Wood/Breakable" unique_id=1646922617 instance=ExtResource("7_vtaks")]
+position = Vector2(725, -1770)
+
+[node name="Platform_wood_breakable4" parent="Platforms/Wood/Breakable" unique_id=185889550 instance=ExtResource("7_vtaks")]
+position = Vector2(1088, -2599)
+
+[node name="Platform_wood_breakable5" parent="Platforms/Wood/Breakable" unique_id=481458438 instance=ExtResource("7_vtaks")]
+position = Vector2(454, -2823)
+
+[node name="Platform_wood_breakable10" parent="Platforms/Wood/Breakable" unique_id=252998352 instance=ExtResource("7_vtaks")]
+position = Vector2(1051, -4184)
+
+[node name="Platform_wood_breakable11" parent="Platforms/Wood/Breakable" unique_id=1050865140 instance=ExtResource("7_vtaks")]
+position = Vector2(1108, -6724)
+
+[node name="Platform_wood_breakable12" parent="Platforms/Wood/Breakable" unique_id=877676904 instance=ExtResource("7_vtaks")]
+position = Vector2(740, -5981)
+
+[node name="Platform_wood_breakable13" parent="Platforms/Wood/Breakable" unique_id=1563646436 instance=ExtResource("7_vtaks")]
+position = Vector2(396, -6189)
+
+[node name="Platform_wood_breakable14" parent="Platforms/Wood/Breakable" unique_id=1561924964 instance=ExtResource("7_vtaks")]
+position = Vector2(1432, -6976)
+
+[node name="Platform_wood_breakable6" parent="Platforms/Wood/Breakable" unique_id=1488459082 instance=ExtResource("7_vtaks")]
+position = Vector2(1024, -3099)
+
+[node name="Platform_wood_breakable7" parent="Platforms/Wood/Breakable" unique_id=923811917 instance=ExtResource("7_vtaks")]
+position = Vector2(513, -4456)
+
+[node name="Platform_wood_breakable8" parent="Platforms/Wood/Breakable" unique_id=1598002616 instance=ExtResource("7_vtaks")]
+position = Vector2(936, -3683)
+
+[node name="Platform_wood_breakable9" parent="Platforms/Wood/Breakable" unique_id=1212225439 instance=ExtResource("7_vtaks")]
+position = Vector2(413, -3935)
+
+[node name="Sand" type="Node2D" parent="Platforms" unique_id=1261158850]
+
+[node name="sinking" type="Node2D" parent="Platforms/Sand" unique_id=109083205]
+
+[node name="platform_sand_collapse" parent="Platforms/Sand/sinking" unique_id=1270791175 instance=ExtResource("8_dinhu")]
+position = Vector2(548, -7480)
+
+[node name="platform_sand_collapse2" parent="Platforms/Sand/sinking" unique_id=1833834869 instance=ExtResource("8_dinhu")]
+position = Vector2(293, -7688)
+
+[node name="platform_sand_collapse3" parent="Platforms/Sand/sinking" unique_id=1651333433 instance=ExtResource("8_dinhu")]
+position = Vector2(757, -8802)
+
+[node name="platform_sand_collapse4" parent="Platforms/Sand/sinking" unique_id=655695448 instance=ExtResource("8_dinhu")]
+position = Vector2(1022, -8599)
+
+[node name="platform_sand_collapse5" parent="Platforms/Sand/sinking" unique_id=1871868434 instance=ExtResource("8_dinhu")]
+position = Vector2(141, -9237)
+
+[node name="platform_sand_collapse6" parent="Platforms/Sand/sinking" unique_id=657313081 instance=ExtResource("8_dinhu")]
+position = Vector2(887, -9613)
+
+[node name="platform_sand_collapse7" parent="Platforms/Sand/sinking" unique_id=463613897 instance=ExtResource("8_dinhu")]
+position = Vector2(1509, -11467)
+
+[node name="platform_sand_collapse10" parent="Platforms/Sand/sinking" unique_id=103863557 instance=ExtResource("8_dinhu")]
+position = Vector2(833, -11704)
+
+[node name="platform_sand_collapse8" parent="Platforms/Sand/sinking" unique_id=673837542 instance=ExtResource("8_dinhu")]
+position = Vector2(1185, -11656)
+
+[node name="platform_sand_collapse9" parent="Platforms/Sand/sinking" unique_id=672000653 instance=ExtResource("8_dinhu")]
+position = Vector2(662, -12074)
+
+[node name="platform_sand_collapse12" parent="Platforms/Sand/sinking" unique_id=1963869538 instance=ExtResource("8_dinhu")]
+position = Vector2(1634, -12630)
+
+[node name="platform_sand_collapse11" parent="Platforms/Sand/sinking" unique_id=223222201 instance=ExtResource("8_dinhu")]
+position = Vector2(677, -12535)
+
+[node name="platform_sand_collapse13" parent="Platforms/Sand/sinking" unique_id=61394539 instance=ExtResource("8_dinhu")]
+position = Vector2(681, -13480)
+
+[node name="platform_sand_collapse14" parent="Platforms/Sand/sinking" unique_id=781222491 instance=ExtResource("8_dinhu")]
+position = Vector2(1241, -14207)
+
+[node name="platform_sand_collapse15" parent="Platforms/Sand/sinking" unique_id=1123524161 instance=ExtResource("8_dinhu")]
+position = Vector2(1504, -14412)
+
+[node name="platform_sand_collapse16" parent="Platforms/Sand/sinking" unique_id=1718599989 instance=ExtResource("8_dinhu")]
+position = Vector2(1149, -14633)
+
+[node name="platform_sand_collapse17" parent="Platforms/Sand/sinking" unique_id=1829183340 instance=ExtResource("8_dinhu")]
+position = Vector2(848, -14829)
+
+[node name="platform_sand_collapse18" parent="Platforms/Sand/sinking" unique_id=965065413 instance=ExtResource("8_dinhu")]
+position = Vector2(535, -15004)
+
+[node name="platform_sand_collapse20" parent="Platforms/Sand/sinking" unique_id=772179455 instance=ExtResource("8_dinhu")]
+position = Vector2(598, -16853)
+
+[node name="platform_sand_collapse21" parent="Platforms/Sand/sinking" unique_id=858574775 instance=ExtResource("8_dinhu")]
+position = Vector2(1112, -17647)
+
+[node name="platform_sand_collapse22" parent="Platforms/Sand/sinking" unique_id=1736838220 instance=ExtResource("8_dinhu")]
+position = Vector2(765, -17852)
+
+[node name="platform_sand_collapse23" parent="Platforms/Sand/sinking" unique_id=1152974192 instance=ExtResource("8_dinhu")]
+position = Vector2(422, -18053)
+
+[node name="platform_sand_collapse24" parent="Platforms/Sand/sinking" unique_id=2005715584 instance=ExtResource("8_dinhu")]
+position = Vector2(134, -18287)
+
+[node name="platform_sand_collapse19" parent="Platforms/Sand/sinking" unique_id=750540433 instance=ExtResource("8_dinhu")]
+position = Vector2(268, -15196)
+
+[node name="breakable" type="Node2D" parent="Platforms/Sand" unique_id=2130873982]
+
+[node name="Platform_sand_breakable" parent="Platforms/Sand/breakable" unique_id=1137605463 instance=ExtResource("9_kvuet")]
+position = Vector2(720, -7901)
+
+[node name="Platform_sand_breakable2" parent="Platforms/Sand/breakable" unique_id=29736271 instance=ExtResource("9_kvuet")]
+position = Vector2(1076, -8146)
+
+[node name="Platform_sand_breakable3" parent="Platforms/Sand/breakable" unique_id=1596973268 instance=ExtResource("9_kvuet")]
+position = Vector2(1225, -9796)
+
+[node name="Platform_sand_breakable4" parent="Platforms/Sand/breakable" unique_id=1028754815 instance=ExtResource("9_kvuet")]
+position = Vector2(818, -10533)
+
+[node name="Platform_sand_breakable5" parent="Platforms/Sand/breakable" unique_id=979807443 instance=ExtResource("9_kvuet")]
+position = Vector2(332, -10799)
+
+[node name="Platform_sand_breakable6" parent="Platforms/Sand/breakable" unique_id=1044728225 instance=ExtResource("9_kvuet")]
+position = Vector2(1299, -11244)
+
+[node name="Platform_sand_breakable7" parent="Platforms/Sand/breakable" unique_id=1692550901 instance=ExtResource("9_kvuet")]
+position = Vector2(1491, -12371)
+
+[node name="Platform_sand_breakable8" parent="Platforms/Sand/breakable" unique_id=930275453 instance=ExtResource("9_kvuet")]
+position = Vector2(253, -13696)
+
+[node name="Platform_sand_breakable9" parent="Platforms/Sand/breakable" unique_id=1805791170 instance=ExtResource("9_kvuet")]
+position = Vector2(1449, -15883)
+
+[node name="Platform_sand_breakable10" parent="Platforms/Sand/breakable" unique_id=823391054 instance=ExtResource("9_kvuet")]
+position = Vector2(489, -16350)
+
+[node name="Platform_sand_breakable11" parent="Platforms/Sand/breakable" unique_id=1998440334 instance=ExtResource("9_kvuet")]
+position = Vector2(1013, -17075)
+
+[node name="Platform_sand_breakable12" parent="Platforms/Sand/breakable" unique_id=457586888 instance=ExtResource("9_kvuet")]
+position = Vector2(1440, -17332)
+
+[node name="Normal" type="Node2D" parent="Platforms/Sand" unique_id=1735452953]
+
+[node name="Platform_grass_normal" parent="Platforms/Sand/Normal" unique_id=1675884678 instance=ExtResource("10_trtic")]
+position = Vector2(1438, -8384)
+
+[node name="Platform_grass_normal2" parent="Platforms/Sand/Normal" unique_id=886107828 instance=ExtResource("10_trtic")]
+position = Vector2(411, -8996)
+
+[node name="Platform_grass_normal3" parent="Platforms/Sand/Normal" unique_id=556882534 instance=ExtResource("10_trtic")]
+position = Vector2(565, -9417)
+
+[node name="Platform_grass_normal4" parent="Platforms/Sand/Normal" unique_id=1579607991 instance=ExtResource("10_trtic")]
+position = Vector2(779, -10049)
+
+[node name="Platform_grass_normal5" parent="Platforms/Sand/Normal" unique_id=324715553 instance=ExtResource("10_trtic")]
+position = Vector2(358, -10278)
+
+[node name="Platform_grass_normal6" parent="Platforms/Sand/Normal" unique_id=208624546 instance=ExtResource("10_trtic")]
+position = Vector2(816, -11081)
+
+[node name="Platform_grass_normal9" parent="Platforms/Sand/Normal" unique_id=656775301 instance=ExtResource("10_trtic")]
+position = Vector2(1103, -12115)
+
+[node name="Platform_grass_normal7" parent="Platforms/Sand/Normal" unique_id=403538133 instance=ExtResource("10_trtic")]
+position = Vector2(351, -11693)
+
+[node name="Platform_grass_normal8" parent="Platforms/Sand/Normal" unique_id=1594681521 instance=ExtResource("10_trtic")]
+position = Vector2(1098, -12765)
+
+[node name="Platform_grass_normal10" parent="Platforms/Sand/Normal" unique_id=1925616666 instance=ExtResource("10_trtic")]
+position = Vector2(1626, -12997)
+
+[node name="Platform_grass_normal11" parent="Platforms/Sand/Normal" unique_id=1085422372 instance=ExtResource("10_trtic")]
+position = Vector2(1102, -13259)
+
+[node name="Platform_grass_normal12" parent="Platforms/Sand/Normal" unique_id=902252814 instance=ExtResource("10_trtic")]
+position = Vector2(836, -13939)
+
+[node name="Platform_grass_normal13" parent="Platforms/Sand/Normal" unique_id=845279958 instance=ExtResource("10_trtic")]
+position = Vector2(674, -15405)
+
+[node name="Platform_grass_normal14" parent="Platforms/Sand/Normal" unique_id=882570288 instance=ExtResource("10_trtic")]
+position = Vector2(1148, -15605)
+
+[node name="Platform_grass_normal15" parent="Platforms/Sand/Normal" unique_id=462496121 instance=ExtResource("10_trtic")]
+position = Vector2(925, -16123)
+
+[node name="Platform_grass_normal17" parent="Platforms/Sand/Normal" unique_id=659667605 instance=ExtResource("10_trtic")]
+position = Vector2(517, -18511)
+
+[node name="Platform_grass_normal18" parent="Platforms/Sand/Normal" unique_id=7331948 instance=ExtResource("10_trtic")]
+position = Vector2(1000, -18780)
+
+[node name="Platform_grass_normal16" parent="Platforms/Sand/Normal" unique_id=1340518782 instance=ExtResource("10_trtic")]
+position = Vector2(85, -16628)
+
+[node name="Snow" type="Node2D" parent="Platforms" unique_id=269405906]
+
+[node name="Normal" type="Node2D" parent="Platforms/Snow" unique_id=494104183]
+
+[node name="Platform_snow_normal" parent="Platforms/Snow/Normal" unique_id=723292079 instance=ExtResource("11_264po")]
+position = Vector2(1343, -19096)
+
+[node name="Platform_snow_normal2" parent="Platforms/Snow/Normal" unique_id=810564366 instance=ExtResource("11_264po")]
+position = Vector2(876, -19339)
+
+[node name="Platform_snow_normal3" parent="Platforms/Snow/Normal" unique_id=650233069 instance=ExtResource("11_264po")]
+position = Vector2(1420, -19553)
+
+[node name="Platform_snow_normal5" parent="Platforms/Snow/Normal" unique_id=776429280 instance=ExtResource("11_264po")]
+position = Vector2(585, -21938)
+
+[node name="Platform_snow_normal6" parent="Platforms/Snow/Normal" unique_id=610436713 instance=ExtResource("11_264po")]
+position = Vector2(1407, -22359)
+
+[node name="Platform_snow_normal7" parent="Platforms/Snow/Normal" unique_id=1003368652 instance=ExtResource("11_264po")]
+position = Vector2(1109, -22868)
+
+[node name="Platform_snow_normal8" parent="Platforms/Snow/Normal" unique_id=513164973 instance=ExtResource("11_264po")]
+position = Vector2(550, -23785)
+
+[node name="Platform_snow_normal9" parent="Platforms/Snow/Normal" unique_id=2015398629 instance=ExtResource("11_264po")]
+position = Vector2(997, -24043)
+
+[node name="Platform_snow_normal10" parent="Platforms/Snow/Normal" unique_id=679293121 instance=ExtResource("11_264po")]
+position = Vector2(1219, -24715)
+
+[node name="Platform_snow_normal11" parent="Platforms/Snow/Normal" unique_id=1142864707 instance=ExtResource("11_264po")]
+position = Vector2(795, -24917)
+
+[node name="Platform_snow_normal12" parent="Platforms/Snow/Normal" unique_id=568067649 instance=ExtResource("11_264po")]
+position = Vector2(1073, -26423)
+
+[node name="Platform_snow_normal13" parent="Platforms/Snow/Normal" unique_id=1444913280 instance=ExtResource("11_264po")]
+position = Vector2(40, -27548)
+
+[node name="Platform_snow_normal14" parent="Platforms/Snow/Normal" unique_id=1472086851 instance=ExtResource("11_264po")]
+position = Vector2(46, -28080)
+
+[node name="Platform_snow_normal4" parent="Platforms/Snow/Normal" unique_id=1320749279 instance=ExtResource("11_264po")]
+position = Vector2(1244, -21022)
+
+[node name="Small" type="Node2D" parent="Platforms/Snow" unique_id=630034961]
+
+[node name="Platform_snow_normal" parent="Platforms/Snow/Small" unique_id=1402774140 instance=ExtResource("12_1kice")]
+position = Vector2(978, -19744)
+
+[node name="Platform_snow_normal3" parent="Platforms/Snow/Small" unique_id=1482042221 instance=ExtResource("12_1kice")]
+position = Vector2(416, -20166)
+
+[node name="Platform_snow_normal4" parent="Platforms/Snow/Small" unique_id=487243986 instance=ExtResource("12_1kice")]
+position = Vector2(165, -20386)
+
+[node name="Platform_snow_normal5" parent="Platforms/Snow/Small" unique_id=885994669 instance=ExtResource("12_1kice")]
+position = Vector2(560, -20568)
+
+[node name="Platform_snow_normal7" parent="Platforms/Snow/Small" unique_id=1592875904 instance=ExtResource("12_1kice")]
+position = Vector2(547, -21391)
+
+[node name="Platform_snow_normal8" parent="Platforms/Snow/Small" unique_id=1682170974 instance=ExtResource("12_1kice")]
+position = Vector2(547, -21391)
+
+[node name="Platform_snow_normal12" parent="Platforms/Snow/Small" unique_id=243759223 instance=ExtResource("12_1kice")]
+position = Vector2(682, -26651)
+
+[node name="Platform_snow_normal13" parent="Platforms/Snow/Small" unique_id=1525064266 instance=ExtResource("12_1kice")]
+position = Vector2(407, -26877)
+
+[node name="Platform_snow_normal14" parent="Platforms/Snow/Small" unique_id=528009772 instance=ExtResource("12_1kice")]
+position = Vector2(132, -27097)
+
+[node name="Platform_snow_normal15" parent="Platforms/Snow/Small" unique_id=464630307 instance=ExtResource("12_1kice")]
+position = Vector2(377, -27293)
+
+[node name="Platform_snow_normal16" parent="Platforms/Snow/Small" unique_id=1341621850 instance=ExtResource("12_1kice")]
+position = Vector2(439, -27807)
+
+[node name="Platform_snow_normal10" parent="Platforms/Snow/Small" unique_id=1578471194 instance=ExtResource("12_1kice")]
+position = Vector2(1428, -24236)
+
+[node name="Platform_snow_normal11" parent="Platforms/Snow/Small" unique_id=1264864892 instance=ExtResource("12_1kice")]
+position = Vector2(1625, -24509)
+
+[node name="Platform_snow_normal9" parent="Platforms/Snow/Small" unique_id=256603542 instance=ExtResource("12_1kice")]
+position = Vector2(225, -21646)
+
+[node name="Platform_snow_normal6" parent="Platforms/Snow/Small" unique_id=717848868 instance=ExtResource("12_1kice")]
+position = Vector2(879, -20784)
+
+[node name="Platform_snow_normal2" parent="Platforms/Snow/Small" unique_id=730301066 instance=ExtResource("12_1kice")]
+position = Vector2(640, -19938)
+
+[node name="breakable" type="Node2D" parent="Platforms/Snow" unique_id=1691736833]
+
+[node name="Platform_sand_breakable" parent="Platforms/Snow/breakable" unique_id=277876220 instance=ExtResource("13_5newe")]
+position = Vector2(857, -21234)
+
+[node name="Platform_sand_breakable2" parent="Platforms/Snow/breakable" unique_id=1067506500 instance=ExtResource("13_5newe")]
+position = Vector2(991, -22155)
+
+[node name="Platform_sand_breakable3" parent="Platforms/Snow/breakable" unique_id=1809482981 instance=ExtResource("13_5newe")]
+position = Vector2(1584, -22638)
+
+[node name="Platform_sand_breakable4" parent="Platforms/Snow/breakable" unique_id=1619040460 instance=ExtResource("13_5newe")]
+position = Vector2(737, -23112)
+
+[node name="Platform_sand_breakable5" parent="Platforms/Snow/breakable" unique_id=1071409878 instance=ExtResource("13_5newe")]
+position = Vector2(451, -23310)
+
+[node name="Platform_sand_breakable7" parent="Platforms/Snow/breakable" unique_id=377774613 instance=ExtResource("13_5newe")]
+position = Vector2(411, -25119)
+
+[node name="Platform_sand_breakable8" parent="Platforms/Snow/breakable" unique_id=247410913 instance=ExtResource("13_5newe")]
+position = Vector2(168, -25382)
+
+[node name="Platform_sand_breakable9" parent="Platforms/Snow/breakable" unique_id=195666394 instance=ExtResource("13_5newe")]
+position = Vector2(497, -25584)
+
+[node name="Platform_sand_breakable10" parent="Platforms/Snow/breakable" unique_id=1523295220 instance=ExtResource("13_5newe")]
+position = Vector2(805, -25781)
+
+[node name="Platform_sand_breakable11" parent="Platforms/Snow/breakable" unique_id=107082591 instance=ExtResource("13_5newe")]
+position = Vector2(1103, -25978)
+
+[node name="Platform_sand_breakable12" parent="Platforms/Snow/breakable" unique_id=1453633334 instance=ExtResource("13_5newe")]
+position = Vector2(1381, -26160)
+
+[node name="Platform_sand_breakable6" parent="Platforms/Snow/breakable" unique_id=1541016826 instance=ExtResource("13_5newe")]
+position = Vector2(175, -23514)
+
+[node name="Cake" type="Node2D" parent="Platforms" unique_id=565410508]
+
+[node name="Normal" type="Node2D" parent="Platforms/Cake" unique_id=2005223722]
+
+[node name="Platform_sand_normal" parent="Platforms/Cake/Normal" unique_id=1306732085 instance=ExtResource("14_qnb83")]
+position = Vector2(474, -28325)
+
+[node name="Platform_sand_normal3" parent="Platforms/Cake/Normal" unique_id=1419677276 instance=ExtResource("14_qnb83")]
+position = Vector2(246, -29054)
+
+[node name="Platform_sand_normal6" parent="Platforms/Cake/Normal" unique_id=1372232596 instance=ExtResource("14_qnb83")]
+position = Vector2(246, -29054)
+
+[node name="Platform_sand_normal4" parent="Platforms/Cake/Normal" unique_id=1213017239 instance=ExtResource("14_qnb83")]
+position = Vector2(391, -29586)
+
+[node name="Platform_sand_normal5" parent="Platforms/Cake/Normal" unique_id=2013983783 instance=ExtResource("14_qnb83")]
+position = Vector2(955, -30863)
+
+[node name="Platform_sand_normal7" parent="Platforms/Cake/Normal" unique_id=1721887527 instance=ExtResource("14_qnb83")]
+position = Vector2(973, -32066)
+
+[node name="Platform_sand_normal8" parent="Platforms/Cake/Normal" unique_id=1283670284 instance=ExtResource("14_qnb83")]
+position = Vector2(1576, -32795)
+
+[node name="Platform_sand_normal10" parent="Platforms/Cake/Normal" unique_id=530650840 instance=ExtResource("14_qnb83")]
+position = Vector2(186, -34201)
+
+[node name="Platform_sand_normal11" parent="Platforms/Cake/Normal" unique_id=758592734 instance=ExtResource("14_qnb83")]
+position = Vector2(945, -34631)
+
+[node name="Platform_sand_normal13" parent="Platforms/Cake/Normal" unique_id=1559096362 instance=ExtResource("14_qnb83")]
+position = Vector2(849, -36032)
+
+[node name="Platform_sand_normal14" parent="Platforms/Cake/Normal" unique_id=1995516848 instance=ExtResource("14_qnb83")]
+position = Vector2(1618, -36473)
+
+[node name="Platform_sand_normal15" parent="Platforms/Cake/Normal" unique_id=495933843 instance=ExtResource("14_qnb83")]
+position = Vector2(74, -37377)
+
+[node name="Platform_sand_normal16" parent="Platforms/Cake/Normal" unique_id=1697852699 instance=ExtResource("14_qnb83")]
+position = Vector2(176, -37906)
+
+[node name="Platform_sand_normal17" parent="Platforms/Cake/Normal" unique_id=1955796860 instance=ExtResource("14_qnb83")]
+position = Vector2(1367, -38658)
+
+[node name="Platform_sand_normal18" parent="Platforms/Cake/Normal" unique_id=1654661230 instance=ExtResource("14_qnb83")]
+position = Vector2(210, -39097)
+
+[node name="Platform_sand_normal19" parent="Platforms/Cake/Normal" unique_id=1624116013 instance=ExtResource("14_qnb83")]
+position = Vector2(809, -41524)
+
+[node name="Platform_sand_normal12" parent="Platforms/Cake/Normal" unique_id=854198939 instance=ExtResource("14_qnb83")]
+position = Vector2(1161, -34342)
+
+[node name="Platform_sand_normal9" parent="Platforms/Cake/Normal" unique_id=1234675348 instance=ExtResource("14_qnb83")]
+position = Vector2(187, -32759)
+
+[node name="Platform_sand_normal2" parent="Platforms/Cake/Normal" unique_id=1773293053 instance=ExtResource("14_qnb83")]
+position = Vector2(899, -28546)
+
+[node name="Moving" type="Node2D" parent="Platforms/Cake" unique_id=269165185]
+
+[node name="Platform_cake_moving" parent="Platforms/Cake/Moving" unique_id=1740695058 instance=ExtResource("15_sww3w")]
+position = Vector2(1354, -28810)
+
+[node name="Platform_cake_moving3" parent="Platforms/Cake/Moving" unique_id=1431626592 instance=ExtResource("15_sww3w")]
+position = Vector2(238, -30344)
+
+[node name="Platform_cake_moving4" parent="Platforms/Cake/Moving" unique_id=1709607757 instance=ExtResource("15_sww3w")]
+position = Vector2(552, -31572)
+
+[node name="Platform_cake_moving5" parent="Platforms/Cake/Moving" unique_id=1784268753 instance=ExtResource("15_sww3w")]
+position = Vector2(805, -32537)
+
+[node name="Platform_cake_moving2" parent="Platforms/Cake/Moving" unique_id=833598894 instance=ExtResource("15_sww3w")]
+position = Vector2(1206, -30105)
+
+[node name="Breakable" type="Node2D" parent="Platforms/Cake" unique_id=175653896]
+
+[node name="Platform_cake_breakable" parent="Platforms/Cake/Breakable" unique_id=380248938 instance=ExtResource("16_sww3w")]
+position = Vector2(-35, -29326)
+
+[node name="Platform_cake_breakable2" parent="Platforms/Cake/Breakable" unique_id=2128362104 instance=ExtResource("16_sww3w")]
+position = Vector2(865, -29845)
+
+[node name="Platform_cake_breakable8" parent="Platforms/Cake/Breakable" unique_id=1060078130 instance=ExtResource("16_sww3w")]
+position = Vector2(1228, -33045)
+
+[node name="Platform_cake_breakable9" parent="Platforms/Cake/Breakable" unique_id=1753569725 instance=ExtResource("16_sww3w")]
+position = Vector2(931, -33233)
+
+[node name="Platform_cake_breakable10" parent="Platforms/Cake/Breakable" unique_id=1518129602 instance=ExtResource("16_sww3w")]
+position = Vector2(651, -33425)
+
+[node name="Platform_cake_breakable11" parent="Platforms/Cake/Breakable" unique_id=1668218792 instance=ExtResource("16_sww3w")]
+position = Vector2(956, -33663)
+
+[node name="Platform_cake_breakable12" parent="Platforms/Cake/Breakable" unique_id=1540916134 instance=ExtResource("16_sww3w")]
+position = Vector2(1232, -33893)
+
+[node name="Platform_cake_breakable15" parent="Platforms/Cake/Breakable" unique_id=685566953 instance=ExtResource("16_sww3w")]
+position = Vector2(-155, -33962)
+
+[node name="Platform_cake_breakable16" parent="Platforms/Cake/Breakable" unique_id=422044164 instance=ExtResource("16_sww3w")]
+position = Vector2(563, -34386)
+
+[node name="Platform_cake_breakable17" parent="Platforms/Cake/Breakable" unique_id=6008548 instance=ExtResource("16_sww3w")]
+position = Vector2(1259, -34887)
+
+[node name="Platform_cake_breakable18" parent="Platforms/Cake/Breakable" unique_id=797910687 instance=ExtResource("16_sww3w")]
+position = Vector2(1540, -35083)
+
+[node name="Platform_cake_breakable19" parent="Platforms/Cake/Breakable" unique_id=2007817391 instance=ExtResource("16_sww3w")]
+position = Vector2(1229, -35276)
+
+[node name="Platform_cake_breakable20" parent="Platforms/Cake/Breakable" unique_id=1498139782 instance=ExtResource("16_sww3w")]
+position = Vector2(956, -35462)
+
+[node name="Platform_cake_breakable21" parent="Platforms/Cake/Breakable" unique_id=2115975830 instance=ExtResource("16_sww3w")]
+position = Vector2(721, -35635)
+
+[node name="Platform_cake_breakable22" parent="Platforms/Cake/Breakable" unique_id=1664284342 instance=ExtResource("16_sww3w")]
+position = Vector2(439, -35822)
+
+[node name="Platform_cake_breakable23" parent="Platforms/Cake/Breakable" unique_id=551141154 instance=ExtResource("16_sww3w")]
+position = Vector2(1173, -36285)
+
+[node name="Platform_cake_breakable24" parent="Platforms/Cake/Breakable" unique_id=1677453729 instance=ExtResource("16_sww3w")]
+position = Vector2(1222, -36716)
+
+[node name="Platform_cake_breakable25" parent="Platforms/Cake/Breakable" unique_id=843397320 instance=ExtResource("16_sww3w")]
+position = Vector2(1222, -36716)
+
+[node name="Platform_cake_breakable26" parent="Platforms/Cake/Breakable" unique_id=1103145511 instance=ExtResource("16_sww3w")]
+position = Vector2(947, -36866)
+
+[node name="Platform_cake_breakable27" parent="Platforms/Cake/Breakable" unique_id=229239316 instance=ExtResource("16_sww3w")]
+position = Vector2(689, -37010)
+
+[node name="Platform_cake_breakable28" parent="Platforms/Cake/Breakable" unique_id=168895804 instance=ExtResource("16_sww3w")]
+position = Vector2(438, -37158)
+
+[node name="Platform_cake_breakable29" parent="Platforms/Cake/Breakable" unique_id=853450309 instance=ExtResource("16_sww3w")]
+position = Vector2(492, -37560)
+
+[node name="Platform_cake_breakable30" parent="Platforms/Cake/Breakable" unique_id=644986925 instance=ExtResource("16_sww3w")]
+position = Vector2(751, -37805)
+
+[node name="Platform_cake_breakable31" parent="Platforms/Cake/Breakable" unique_id=1348359547 instance=ExtResource("16_sww3w")]
+position = Vector2(1054, -37992)
+
+[node name="Platform_cake_breakable34" parent="Platforms/Cake/Breakable" unique_id=37451139 instance=ExtResource("16_sww3w")]
+position = Vector2(1861, -38532)
+
+[node name="Platform_cake_breakable35" parent="Platforms/Cake/Breakable" unique_id=1608285364 instance=ExtResource("16_sww3w")]
+position = Vector2(1650, -39005)
+
+[node name="Platform_cake_breakable36" parent="Platforms/Cake/Breakable" unique_id=1645773630 instance=ExtResource("16_sww3w")]
+position = Vector2(1422, -39150)
+
+[node name="Platform_cake_breakable37" parent="Platforms/Cake/Breakable" unique_id=249429228 instance=ExtResource("16_sww3w")]
+position = Vector2(1160, -39306)
+
+[node name="Platform_cake_breakable38" parent="Platforms/Cake/Breakable" unique_id=11320262 instance=ExtResource("16_sww3w")]
+position = Vector2(921, -39501)
+
+[node name="Platform_cake_breakable39" parent="Platforms/Cake/Breakable" unique_id=1011607362 instance=ExtResource("16_sww3w")]
+position = Vector2(632, -39696)
+
+[node name="Platform_cake_breakable40" parent="Platforms/Cake/Breakable" unique_id=1118169496 instance=ExtResource("16_sww3w")]
+position = Vector2(348, -39941)
+
+[node name="Platform_cake_breakable41" parent="Platforms/Cake/Breakable" unique_id=438159074 instance=ExtResource("16_sww3w")]
+position = Vector2(81, -40124)
+
+[node name="Platform_cake_breakable42" parent="Platforms/Cake/Breakable" unique_id=569716506 instance=ExtResource("16_sww3w")]
+position = Vector2(448, -40330)
+
+[node name="Platform_cake_breakable43" parent="Platforms/Cake/Breakable" unique_id=2013292177 instance=ExtResource("16_sww3w")]
+position = Vector2(743, -40491)
+
+[node name="Platform_cake_breakable44" parent="Platforms/Cake/Breakable" unique_id=1076290621 instance=ExtResource("16_sww3w")]
+position = Vector2(1065, -40686)
+
+[node name="Platform_cake_breakable45" parent="Platforms/Cake/Breakable" unique_id=1148516187 instance=ExtResource("16_sww3w")]
+position = Vector2(1360, -40881)
+
+[node name="Platform_cake_breakable46" parent="Platforms/Cake/Breakable" unique_id=452993014 instance=ExtResource("16_sww3w")]
+position = Vector2(1605, -41103)
+
+[node name="Platform_cake_breakable47" parent="Platforms/Cake/Breakable" unique_id=1869364820 instance=ExtResource("16_sww3w")]
+position = Vector2(1253, -41294)
+
+[node name="Platform_cake_breakable32" parent="Platforms/Cake/Breakable" unique_id=1170799989 instance=ExtResource("16_sww3w")]
+position = Vector2(1347, -38164)
+
+[node name="Platform_cake_breakable33" parent="Platforms/Cake/Breakable" unique_id=1306836002 instance=ExtResource("16_sww3w")]
+position = Vector2(1594.9999, -38341)
+rotation = -0.008376264
+
+[node name="Platform_cake_breakable14" parent="Platforms/Cake/Breakable" unique_id=831958962 instance=ExtResource("16_sww3w")]
+position = Vector2(5, -33724)
+
+[node name="Platform_cake_breakable13" parent="Platforms/Cake/Breakable" unique_id=1330412860 instance=ExtResource("16_sww3w")]
+position = Vector2(1544, -34092)
+
+[node name="Platform_cake_breakable3" parent="Platforms/Cake/Breakable" unique_id=2128625211 instance=ExtResource("16_sww3w")]
+position = Vector2(1385, -30616)
+
+[node name="Platform_cake_breakable4" parent="Platforms/Cake/Breakable" unique_id=1941573780 instance=ExtResource("16_sww3w")]
+position = Vector2(546, -31088)
+
+[node name="Platform_cake_breakable6" parent="Platforms/Cake/Breakable" unique_id=1823031320 instance=ExtResource("16_sww3w")]
+position = Vector2(1406, -31829)
+
+[node name="Platform_cake_breakable7" parent="Platforms/Cake/Breakable" unique_id=1671726501 instance=ExtResource("16_sww3w")]
+position = Vector2(458, -32251)
+
+[node name="Platform_cake_breakable5" parent="Platforms/Cake/Breakable" unique_id=750857308 instance=ExtResource("16_sww3w")]
+position = Vector2(206, -31316)
+
+[node name="player" parent="." unique_id=56831980 instance=ExtResource("1_yqjtg")]
+position = Vector2(126.99988, -44568.996)
+
+[node name="SnowParticles" parent="player/Camera2D" parent_id_path=PackedInt32Array(56831980, 63527121) index="0" unique_id=427852928 instance=ExtResource("15_bt5mj")]
+emitting = false
+
+[node name="Collectibles" type="Node2D" parent="." unique_id=1606965565]
+
+[node name="Coins" type="Node2D" parent="Collectibles" unique_id=1441097108]
+
+[node name="Coin" parent="Collectibles/Coins" unique_id=205241581 instance=ExtResource("5_iywne")]
+position = Vector2(979, -519)
+
+[node name="Coin4" parent="Collectibles/Coins" unique_id=1102280970 instance=ExtResource("5_iywne")]
+position = Vector2(842, -65)
+
+[node name="Coin5" parent="Collectibles/Coins" unique_id=1181137443 instance=ExtResource("5_iywne")]
+position = Vector2(754, -151)
+
+[node name="Coin7" parent="Collectibles/Coins" unique_id=48106708 instance=ExtResource("5_iywne")]
+position = Vector2(247, -488)
+
+[node name="Coin10" parent="Collectibles/Coins" unique_id=603486482 instance=ExtResource("5_iywne")]
+position = Vector2(874, -1904)
+
+[node name="Coin17" parent="Collectibles/Coins" unique_id=1508427667 instance=ExtResource("5_iywne")]
+position = Vector2(1208, -2172)
+
+[node name="Coin18" parent="Collectibles/Coins" unique_id=781337361 instance=ExtResource("5_iywne")]
+position = Vector2(211, -2641)
+
+[node name="Coin19" parent="Collectibles/Coins" unique_id=1618441670 instance=ExtResource("5_iywne")]
+position = Vector2(307, -2577)
+
+[node name="Coin20" parent="Collectibles/Coins" unique_id=1652058418 instance=ExtResource("5_iywne")]
+position = Vector2(298, -2729)
+
+[node name="Coin21" parent="Collectibles/Coins" unique_id=1333856203 instance=ExtResource("5_iywne")]
+position = Vector2(583, -2858)
+
+[node name="Coin22" parent="Collectibles/Coins" unique_id=1605378134 instance=ExtResource("5_iywne")]
+position = Vector2(1153, -3097)
+
+[node name="Coin23" parent="Collectibles/Coins" unique_id=1061499604 instance=ExtResource("5_iywne")]
+position = Vector2(317, -3391)
+
+[node name="Coin24" parent="Collectibles/Coins" unique_id=274385495 instance=ExtResource("5_iywne")]
+position = Vector2(386, -3487)
+
+[node name="Coin25" parent="Collectibles/Coins" unique_id=697600469 instance=ExtResource("5_iywne")]
+position = Vector2(248, -3479)
+
+[node name="Coin26" parent="Collectibles/Coins" unique_id=977591999 instance=ExtResource("5_iywne")]
+position = Vector2(721, -3690)
+
+[node name="Coin27" parent="Collectibles/Coins" unique_id=574770560 instance=ExtResource("5_iywne")]
+position = Vector2(1139, -3952)
+
+[node name="Coin28" parent="Collectibles/Coins" unique_id=1236227371 instance=ExtResource("5_iywne")]
+position = Vector2(693, -4182)
+
+[node name="Coin29" parent="Collectibles/Coins" unique_id=555361984 instance=ExtResource("5_iywne")]
+position = Vector2(1276, -4536)
+
+[node name="Coin32" parent="Collectibles/Coins" unique_id=749787884 instance=ExtResource("5_iywne")]
+position = Vector2(743, -4674)
+
+[node name="Coin33" parent="Collectibles/Coins" unique_id=1303819238 instance=ExtResource("5_iywne")]
+position = Vector2(293, -4982)
+
+[node name="Coin34" parent="Collectibles/Coins" unique_id=1590243616 instance=ExtResource("5_iywne")]
+position = Vector2(389, -5097)
+
+[node name="Coin35" parent="Collectibles/Coins" unique_id=815265687 instance=ExtResource("5_iywne")]
+position = Vector2(187, -5088)
+
+[node name="Coin36" parent="Collectibles/Coins" unique_id=403141146 instance=ExtResource("5_iywne")]
+position = Vector2(858, -5194)
+
+[node name="Coin37" parent="Collectibles/Coins" unique_id=2118325561 instance=ExtResource("5_iywne")]
+position = Vector2(1322, -5511)
+
+[node name="Coin38" parent="Collectibles/Coins" unique_id=1454966003 instance=ExtResource("5_iywne")]
+position = Vector2(195, -5984)
+
+[node name="Coin39" parent="Collectibles/Coins" unique_id=1869474040 instance=ExtResource("5_iywne")]
+position = Vector2(280, -6064)
+
+[node name="Coin40" parent="Collectibles/Coins" unique_id=1280665725 instance=ExtResource("5_iywne")]
+position = Vector2(191, -6138)
+
+[node name="Coin41" parent="Collectibles/Coins" unique_id=453721068 instance=ExtResource("5_iywne")]
+position = Vector2(1356, -6619)
+
+[node name="Coin45" parent="Collectibles/Coins" unique_id=1823404407 instance=ExtResource("5_iywne")]
+position = Vector2(614, -6741)
+
+[node name="Coin46" parent="Collectibles/Coins" unique_id=426667749 instance=ExtResource("5_iywne")]
+position = Vector2(746, -6746)
+
+[node name="Coin48" parent="Collectibles/Coins" unique_id=941147192 instance=ExtResource("5_iywne")]
+position = Vector2(177, -7368)
+
+[node name="Coin112" parent="Collectibles/Coins" unique_id=1066572967 instance=ExtResource("5_iywne")]
+position = Vector2(273, -7371)
+
+[node name="Coin50" parent="Collectibles/Coins" unique_id=1211845104 instance=ExtResource("5_iywne")]
+position = Vector2(219, -7456)
+
+[node name="Coin51" parent="Collectibles/Coins" unique_id=1638527244 instance=ExtResource("5_iywne")]
+position = Vector2(1226, -7010)
+
+[node name="Coin52" parent="Collectibles/Coins" unique_id=1017060135 instance=ExtResource("5_iywne")]
+position = Vector2(1392, -7491)
+
+[node name="Coin53" parent="Collectibles/Coins" unique_id=1356140621 instance=ExtResource("5_iywne")]
+position = Vector2(1385, -7794)
+
+[node name="Coin54" parent="Collectibles/Coins" unique_id=958843761 instance=ExtResource("5_iywne")]
+position = Vector2(1385, -7901)
+
+[node name="Coin55" parent="Collectibles/Coins" unique_id=1270540303 instance=ExtResource("5_iywne")]
+position = Vector2(1382, -8002)
+
+[node name="Coin56" parent="Collectibles/Coins" unique_id=853670805 instance=ExtResource("5_iywne")]
+position = Vector2(783, -7945)
+
+[node name="Coin57" parent="Collectibles/Coins" unique_id=1917105188 instance=ExtResource("5_iywne")]
+position = Vector2(231, -8184)
+
+[node name="Coin58" parent="Collectibles/Coins" unique_id=999715418 instance=ExtResource("5_iywne")]
+position = Vector2(299, -8272)
+
+[node name="Coin59" parent="Collectibles/Coins" unique_id=1776254633 instance=ExtResource("5_iywne")]
+position = Vector2(777, -8594)
+
+[node name="Coin64" parent="Collectibles/Coins" unique_id=467485651 instance=ExtResource("5_iywne")]
+position = Vector2(240, -9253)
+
+[node name="Coin69" parent="Collectibles/Coins" unique_id=331558477 instance=ExtResource("5_iywne")]
+position = Vector2(669, -9507)
+
+[node name="Coin60" parent="Collectibles/Coins" unique_id=553523710 instance=ExtResource("5_iywne")]
+position = Vector2(659, -8484)
+
+[node name="Coin66" parent="Collectibles/Coins" unique_id=1133598767 instance=ExtResource("5_iywne")]
+position = Vector2(184, -9165)
+
+[node name="Coin61" parent="Collectibles/Coins" unique_id=1740550657 instance=ExtResource("5_iywne")]
+position = Vector2(891, -8484)
+
+[node name="Coin62" parent="Collectibles/Coins" unique_id=502381790 instance=ExtResource("5_iywne")]
+position = Vector2(1222, -9321)
+
+[node name="Coin65" parent="Collectibles/Coins" unique_id=1846131148 instance=ExtResource("5_iywne")]
+position = Vector2(278, -9165)
+
+[node name="Coin70" parent="Collectibles/Coins" unique_id=643560107 instance=ExtResource("5_iywne")]
+position = Vector2(614, -9591)
+
+[node name="Coin72" parent="Collectibles/Coins" unique_id=505859840 instance=ExtResource("5_iywne")]
+position = Vector2(921, -9851)
+
+[node name="Coin73" parent="Collectibles/Coins" unique_id=2026389154 instance=ExtResource("5_iywne")]
+position = Vector2(883, -9939)
+
+[node name="Coin74" parent="Collectibles/Coins" unique_id=2117787688 instance=ExtResource("5_iywne")]
+position = Vector2(836, -10028)
+
+[node name="Coin75" parent="Collectibles/Coins" unique_id=2125226269 instance=ExtResource("5_iywne")]
+position = Vector2(506, -10132)
+
+[node name="Coin76" parent="Collectibles/Coins" unique_id=1866713881 instance=ExtResource("5_iywne")]
+position = Vector2(976, -10305)
+
+[node name="Coin78" parent="Collectibles/Coins" unique_id=1149522902 instance=ExtResource("5_iywne")]
+position = Vector2(1406, -10549)
+
+[node name="Coin79" parent="Collectibles/Coins" unique_id=241071652 instance=ExtResource("5_iywne")]
+position = Vector2(291, -10554)
+
+[node name="Coin81" parent="Collectibles/Coins" unique_id=891891740 instance=ExtResource("5_iywne")]
+position = Vector2(499, -10560)
+
+[node name="Coin83" parent="Collectibles/Coins" unique_id=621760205 instance=ExtResource("5_iywne")]
+position = Vector2(942, -10980)
+
+[node name="Coin88" parent="Collectibles/Coins" unique_id=1598694708 instance=ExtResource("5_iywne")]
+position = Vector2(1012, -11408)
+
+[node name="Coin89" parent="Collectibles/Coins" unique_id=749596348 instance=ExtResource("5_iywne")]
+position = Vector2(564, -11659)
+
+[node name="Coin90" parent="Collectibles/Coins" unique_id=382621315 instance=ExtResource("5_iywne")]
+position = Vector2(482, -11730)
+
+[node name="Coin91" parent="Collectibles/Coins" unique_id=127542337 instance=ExtResource("5_iywne")]
+position = Vector2(541, -11812)
+
+[node name="Coin92" parent="Collectibles/Coins" unique_id=2022115191 instance=ExtResource("5_iywne")]
+position = Vector2(1022, -12066)
+
+[node name="Coin93" parent="Collectibles/Coins" unique_id=1868224275 instance=ExtResource("5_iywne")]
+position = Vector2(960, -12006)
+
+[node name="Coin94" parent="Collectibles/Coins" unique_id=1742370997 instance=ExtResource("5_iywne")]
+position = Vector2(1035.0001, -11958.999)
+rotation = -2.8838556
+
+[node name="Coin95" parent="Collectibles/Coins" unique_id=1936822676 instance=ExtResource("5_iywne")]
+position = Vector2(605.99976, -13748.999)
+rotation = -2.8838556
+
+[node name="Coin97" parent="Collectibles/Coins" unique_id=1023519955 instance=ExtResource("5_iywne")]
+position = Vector2(152.99998, -12008)
+rotation = -2.8838556
+
+[node name="Coin111" parent="Collectibles/Coins" unique_id=2100543894 instance=ExtResource("5_iywne")]
+position = Vector2(791.00024, -13755)
+rotation = -2.8838556
+
+[node name="Coin98" parent="Collectibles/Coins" unique_id=1623374043 instance=ExtResource("5_iywne")]
+position = Vector2(632.0001, -12618)
+rotation = -2.8838556
+
+[node name="Coin100" parent="Collectibles/Coins" unique_id=1087361927 instance=ExtResource("5_iywne")]
+position = Vector2(675.00006, -12512)
+rotation = -2.8838556
+
+[node name="Coin101" parent="Collectibles/Coins" unique_id=2087082942 instance=ExtResource("5_iywne")]
+position = Vector2(1042.9998, -12847.999)
+rotation = -2.8838556
+
+[node name="Coin104" parent="Collectibles/Coins" unique_id=1047958006 instance=ExtResource("5_iywne")]
+position = Vector2(1402.9999, -13026.999)
+rotation = -2.8838556
+
+[node name="Coin105" parent="Collectibles/Coins" unique_id=906189303 instance=ExtResource("5_iywne")]
+position = Vector2(719.0002, -13186)
+rotation = -2.8838556
+
+[node name="Coin106" parent="Collectibles/Coins" unique_id=120134394 instance=ExtResource("5_iywne")]
+position = Vector2(277.0002, -13414)
+rotation = -2.8838556
+
+[node name="Coin108" parent="Collectibles/Coins" unique_id=1101951590 instance=ExtResource("5_iywne")]
+position = Vector2(355, -13498.999)
+rotation = -2.8838556
+
+[node name="Coin109" parent="Collectibles/Coins" unique_id=601816522 instance=ExtResource("5_iywne")]
+position = Vector2(766.9998, -13272.999)
+rotation = -2.8838556
+
+[node name="Coin110" parent="Collectibles/Coins" unique_id=100335480 instance=ExtResource("5_iywne")]
+position = Vector2(707.99963, -13675)
+rotation = -2.8838556
+
+[node name="Coin107" parent="Collectibles/Coins" unique_id=1108897142 instance=ExtResource("5_iywne")]
+position = Vector2(808.99976, -13184.999)
+rotation = -2.8838556
+
+[node name="Coin102" parent="Collectibles/Coins" unique_id=1292966524 instance=ExtResource("5_iywne")]
+position = Vector2(994.00024, -12769.999)
+rotation = -2.8838556
+
+[node name="Coin103" parent="Collectibles/Coins" unique_id=1979137001 instance=ExtResource("5_iywne")]
+position = Vector2(1081.9998, -12770)
+rotation = -2.8838556
+
+[node name="Coin99" parent="Collectibles/Coins" unique_id=1561817504 instance=ExtResource("5_iywne")]
+position = Vector2(566.00006, -12516)
+rotation = -2.8838556
+
+[node name="Coin96" parent="Collectibles/Coins" unique_id=1922228961 instance=ExtResource("5_iywne")]
+position = Vector2(1114.0001, -13917)
+rotation = -2.8838556
+
+[node name="Coin113" parent="Collectibles/Coins" unique_id=52410094 instance=ExtResource("5_iywne")]
+position = Vector2(527.9999, -14696)
+rotation = -2.8838556
+
+[node name="Coin117" parent="Collectibles/Coins" unique_id=1160878041 instance=ExtResource("5_iywne")]
+position = Vector2(277.00027, -14905)
+rotation = -2.8838556
+
+[node name="Coin118" parent="Collectibles/Coins" unique_id=179842526 instance=ExtResource("5_iywne")]
+position = Vector2(698.0002, -15110)
+rotation = -2.8838556
+
+[node name="Coin119" parent="Collectibles/Coins" unique_id=317606557 instance=ExtResource("5_iywne")]
+position = Vector2(765.9997, -15174.999)
+rotation = -2.8838556
+
+[node name="Coin120" parent="Collectibles/Coins" unique_id=1577182229 instance=ExtResource("5_iywne")]
+position = Vector2(1070, -15356.999)
+rotation = -2.8838556
+
+[node name="Coin121" parent="Collectibles/Coins" unique_id=1402675065 instance=ExtResource("5_iywne")]
+position = Vector2(1423, -15668)
+rotation = -2.8838556
+
+[node name="Coin122" parent="Collectibles/Coins" unique_id=1164597794 instance=ExtResource("5_iywne")]
+position = Vector2(1365, -15592.999)
+rotation = -2.8838556
+
+[node name="Coin124" parent="Collectibles/Coins" unique_id=749882848 instance=ExtResource("5_iywne")]
+position = Vector2(1026.9999, -15820.999)
+rotation = -2.8838556
+
+[node name="Coin125" parent="Collectibles/Coins" unique_id=2123933217 instance=ExtResource("5_iywne")]
+position = Vector2(754.00024, -16007.001)
+rotation = -2.8838556
+
+[node name="Coin126" parent="Collectibles/Coins" unique_id=464944376 instance=ExtResource("5_iywne")]
+position = Vector2(438.9999, -16203.999)
+rotation = -2.8838556
+
+[node name="Coin127" parent="Collectibles/Coins" unique_id=1804144796 instance=ExtResource("5_iywne")]
+position = Vector2(123.99974, -16451)
+rotation = -2.8838556
+
+[node name="Coin128" parent="Collectibles/Coins" unique_id=170150949 instance=ExtResource("5_iywne")]
+position = Vector2(548.9998, -16629)
+rotation = -2.8838556
+
+[node name="Coin129" parent="Collectibles/Coins" unique_id=958991428 instance=ExtResource("5_iywne")]
+position = Vector2(599.00006, -16724)
+rotation = -2.8838556
+
+[node name="Coin130" parent="Collectibles/Coins" unique_id=1265565661 instance=ExtResource("5_iywne")]
+position = Vector2(869.0001, -16842)
+rotation = -2.8838556
+
+[node name="Coin131" parent="Collectibles/Coins" unique_id=1139215672 instance=ExtResource("5_iywne")]
+position = Vector2(789.00024, -17264.002)
+rotation = -2.8838556
+
+[node name="Coin136" parent="Collectibles/Coins" unique_id=1948418987 instance=ExtResource("5_iywne")]
+position = Vector2(421.0001, -17489)
+rotation = -2.8838556
+
+[node name="Coin132" parent="Collectibles/Coins" unique_id=1880812896 instance=ExtResource("5_iywne")]
+position = Vector2(694.0001, -17260)
+rotation = -2.8838556
+
+[node name="Coin133" parent="Collectibles/Coins" unique_id=959761031 instance=ExtResource("5_iywne")]
+position = Vector2(878.9993, -17263.998)
+rotation = -2.8838556
+
+[node name="Coin134" parent="Collectibles/Coins" unique_id=598783146 instance=ExtResource("5_iywne")]
+position = Vector2(784.00006, -17351)
+rotation = -2.8838556
+
+[node name="Coin139" parent="Collectibles/Coins" unique_id=888123399 instance=ExtResource("5_iywne")]
+position = Vector2(861.00006, -18289.998)
+rotation = -2.8838556
+
+[node name="Coin140" parent="Collectibles/Coins" unique_id=82983589 instance=ExtResource("5_iywne")]
+position = Vector2(763.9996, -18287)
+rotation = -2.8838556
+
+[node name="Coin141" parent="Collectibles/Coins" unique_id=1725799899 instance=ExtResource("5_iywne")]
+position = Vector2(1274.9996, -18454.998)
+rotation = -2.8838556
+
+[node name="Coin142" parent="Collectibles/Coins" unique_id=1926275451 instance=ExtResource("5_iywne")]
+position = Vector2(1511.0005, -18738)
+rotation = -2.8838556
+
+[node name="Coin143" parent="Collectibles/Coins" unique_id=68066429 instance=ExtResource("5_iywne")]
+position = Vector2(791.99976, -18907)
+rotation = -2.8838556
+
+[node name="Coin145" parent="Collectibles/Coins" unique_id=1162698187 instance=ExtResource("5_iywne")]
+position = Vector2(280.00006, -19048)
+rotation = -2.8838556
+
+[node name="Coin146" parent="Collectibles/Coins" unique_id=1194176621 instance=ExtResource("5_iywne")]
+position = Vector2(279.99942, -19165.998)
+rotation = -2.8838556
+
+[node name="Coin147" parent="Collectibles/Coins" unique_id=505347750 instance=ExtResource("5_iywne")]
+position = Vector2(280.00055, -19274)
+rotation = -2.8838556
+
+[node name="Coin148" parent="Collectibles/Coins" unique_id=1269676336 instance=ExtResource("5_iywne")]
+position = Vector2(279.9999, -19380.002)
+rotation = -2.8838556
+
+[node name="Coin149" parent="Collectibles/Coins" unique_id=308643412 instance=ExtResource("5_iywne")]
+position = Vector2(1100.0002, -20085)
+rotation = -2.8838556
+
+[node name="Coin150" parent="Collectibles/Coins" unique_id=1231287361 instance=ExtResource("5_iywne")]
+position = Vector2(1039.0001, -19983)
+rotation = -2.8838556
+
+[node name="Coin152" parent="Collectibles/Coins" unique_id=722634379 instance=ExtResource("5_iywne")]
+position = Vector2(656.99976, -19768)
+rotation = -2.8838556
+
+[node name="Coin153" parent="Collectibles/Coins" unique_id=2103683309 instance=ExtResource("5_iywne")]
+position = Vector2(323.0005, -18185)
+rotation = -2.8838556
+
+[node name="Coin154" parent="Collectibles/Coins" unique_id=500174847 instance=ExtResource("5_iywne")]
+position = Vector2(1468.0005, -19591.002)
+rotation = -2.8838556
+
+[node name="Coin155" parent="Collectibles/Coins" unique_id=1900641804 instance=ExtResource("5_iywne")]
+position = Vector2(636, -19301.002)
+rotation = -2.8838556
+
+[node name="Coin156" parent="Collectibles/Coins" unique_id=209582527 instance=ExtResource("5_iywne")]
+position = Vector2(1559.9998, -20202)
+rotation = -2.8838556
+
+[node name="Coin157" parent="Collectibles/Coins" unique_id=1292858372 instance=ExtResource("5_iywne")]
+position = Vector2(1663, -20201)
+rotation = -2.8838556
+
+[node name="Coin159" parent="Collectibles/Coins" unique_id=1237063613 instance=ExtResource("5_iywne")]
+position = Vector2(1103.9998, -20477)
+rotation = -2.8838556
+
+[node name="Coin160" parent="Collectibles/Coins" unique_id=284756382 instance=ExtResource("5_iywne")]
+position = Vector2(1103.9998, -20477)
+rotation = -2.2271798
+
+[node name="Coin158" parent="Collectibles/Coins" unique_id=448873029 instance=ExtResource("5_iywne")]
+position = Vector2(1600.0002, -20291)
+rotation = -2.8838556
+
+[node name="Coin161" parent="Collectibles/Coins" unique_id=988151781 instance=ExtResource("5_iywne")]
+position = Vector2(663.99963, -20693.998)
+rotation = -2.8838556
+
+[node name="Coin162" parent="Collectibles/Coins" unique_id=1309111723 instance=ExtResource("5_iywne")]
+position = Vector2(261.00024, -20901)
+rotation = -2.8838556
+
+[node name="Coin163" parent="Collectibles/Coins" unique_id=2098659889 instance=ExtResource("5_iywne")]
+position = Vector2(832.0003, -21144)
+rotation = -2.8838556
+
+[node name="Coin164" parent="Collectibles/Coins" unique_id=228482917 instance=ExtResource("5_iywne")]
+position = Vector2(1220.9991, -21415)
+rotation = -2.8838556
+
+[node name="Coin165" parent="Collectibles/Coins" unique_id=62989075 instance=ExtResource("5_iywne")]
+position = Vector2(1476.0002, -21618)
+rotation = -2.8838556
+
+[node name="Coin166" parent="Collectibles/Coins" unique_id=1327339117 instance=ExtResource("5_iywne")]
+position = Vector2(1127.0001, -21847)
+rotation = -1.6607383
+
+[node name="Coin167" parent="Collectibles/Coins" unique_id=1044636599 instance=ExtResource("5_iywne")]
+position = Vector2(820, -22045)
+rotation = -1.6607383
+
+[node name="Coin168" parent="Collectibles/Coins" unique_id=127818462 instance=ExtResource("5_iywne")]
+position = Vector2(513.0001, -22216.998)
+rotation = 1.4360288
+
+[node name="Coin169" parent="Collectibles/Coins" unique_id=395360910 instance=ExtResource("5_iywne")]
+position = Vector2(244.00009, -22410)
+rotation = 1.4360288
+
+[node name="Coin170" parent="Collectibles/Coins" unique_id=855236061 instance=ExtResource("5_iywne")]
+position = Vector2(1145.0001, -22804.002)
+rotation = 1.4360288
+
+[node name="Coin171" parent="Collectibles/Coins" unique_id=62231577 instance=ExtResource("5_iywne")]
+position = Vector2(671.00024, -22809)
+rotation = 1.4360288
+
+[node name="Coin172" parent="Collectibles/Coins" unique_id=486222196 instance=ExtResource("5_iywne")]
+position = Vector2(673.0003, -22642)
+rotation = 1.4360288
+
+[node name="Coin173" parent="Collectibles/Coins" unique_id=909847953 instance=ExtResource("5_iywne")]
+position = Vector2(747.0006, -22725)
+rotation = 3.8697257
+
+[node name="Coin174" parent="Collectibles/Coins" unique_id=1899961685 instance=ExtResource("5_iywne")]
+position = Vector2(931.00134, -23337)
+rotation = 3.8697257
+
+[node name="Coin175" parent="Collectibles/Coins" unique_id=706801335 instance=ExtResource("5_iywne")]
+position = Vector2(477.99963, -23561)
+rotation = 6.91216
+
+[node name="Coin176" parent="Collectibles/Coins" unique_id=1729581716 instance=ExtResource("5_iywne")]
+position = Vector2(87.00012, -23839.002)
+rotation = 7.9942074
+
+[node name="Coin177" parent="Collectibles/Coins" unique_id=422823791 instance=ExtResource("5_iywne")]
+position = Vector2(572.9999, -24068.002)
+rotation = 7.9942074
+
+[node name="Coin178" parent="Collectibles/Coins" unique_id=1225840986 instance=ExtResource("5_iywne")]
+position = Vector2(1007.0001, -24290)
+rotation = 7.9942074
+
+[node name="Coin179" parent="Collectibles/Coins" unique_id=1055306525 instance=ExtResource("5_iywne")]
+position = Vector2(1007.0001, -24394)
+rotation = 7.9942074
+
+[node name="Coin180" parent="Collectibles/Coins" unique_id=32778552 instance=ExtResource("5_iywne")]
+position = Vector2(1434.0001, -24554)
+rotation = 7.9942074
+
+[node name="Coin181" parent="Collectibles/Coins" unique_id=1324063114 instance=ExtResource("5_iywne")]
+position = Vector2(1094.0001, -24863.002)
+rotation = 7.9942074
+
+[node name="Coin186" parent="Collectibles/Coins" unique_id=917463554 instance=ExtResource("5_iywne")]
+position = Vector2(881.0001, -26555.002)
+rotation = 7.9942074
+
+[node name="Coin189" parent="Collectibles/Coins" unique_id=686967054 instance=ExtResource("5_iywne")]
+position = Vector2(884.0001, -26652.002)
+rotation = 7.9942074
+
+[node name="Coin190" parent="Collectibles/Coins" unique_id=511804258 instance=ExtResource("5_iywne")]
+position = Vector2(1343.9999, -26379)
+rotation = 7.9942074
+
+[node name="Coin191" parent="Collectibles/Coins" unique_id=633388050 instance=ExtResource("5_iywne")]
+position = Vector2(1397.9999, -26298)
+rotation = 7.9942074
+
+[node name="Coin193" parent="Collectibles/Coins" unique_id=1363278632 instance=ExtResource("5_iywne")]
+position = Vector2(979.0001, -26952.002)
+rotation = 7.9942074
+
+[node name="Coin194" parent="Collectibles/Coins" unique_id=1366509783 instance=ExtResource("5_iywne")]
+position = Vector2(644.00037, -27147.002)
+rotation = 8.84791
+
+[node name="Coin198" parent="Collectibles/Coins" unique_id=1851535716 instance=ExtResource("5_iywne")]
+position = Vector2(1192.0004, -28223)
+rotation = 8.84791
+
+[node name="Coin199" parent="Collectibles/Coins" unique_id=1435740558 instance=ExtResource("5_iywne")]
+position = Vector2(1299.9996, -28228)
+rotation = 8.84791
+
+[node name="Coin201" parent="Collectibles/Coins" unique_id=589362500 instance=ExtResource("5_iywne")]
+position = Vector2(855.9994, -28447)
+rotation = 8.84791
+
+[node name="Coin202" parent="Collectibles/Coins" unique_id=709572599 instance=ExtResource("5_iywne")]
+position = Vector2(541.0006, -28599)
+rotation = 8.84791
+
+[node name="Coin203" parent="Collectibles/Coins" unique_id=1215792998 instance=ExtResource("5_iywne")]
+position = Vector2(217.00037, -28854)
+rotation = 8.84791
+
+[node name="Coin204" parent="Collectibles/Coins" unique_id=171789352 instance=ExtResource("5_iywne")]
+position = Vector2(579.9994, -29231)
+rotation = 8.84791
+
+[node name="Coin205" parent="Collectibles/Coins" unique_id=700561311 instance=ExtResource("5_iywne")]
+position = Vector2(539.0006, -29138.998)
+rotation = 8.84791
+
+[node name="Coin206" parent="Collectibles/Coins" unique_id=1430253201 instance=ExtResource("5_iywne")]
+position = Vector2(643.9994, -29140.998)
+rotation = 8.84791
+
+[node name="Coin207" parent="Collectibles/Coins" unique_id=1222520743 instance=ExtResource("5_iywne")]
+position = Vector2(993.0016, -29361.998)
+rotation = 8.84791
+
+[node name="Coin208" parent="Collectibles/Coins" unique_id=2035122615 instance=ExtResource("5_iywne")]
+position = Vector2(1408.9994, -29567.998)
+rotation = 8.84791
+
+[node name="Coin215" parent="Collectibles/Coins" unique_id=589180434 instance=ExtResource("5_iywne")]
+position = Vector2(174.99963, -30721.998)
+rotation = 8.84791
+
+[node name="Coin216" parent="Collectibles/Coins" unique_id=295296089 instance=ExtResource("5_iywne")]
+position = Vector2(532.00037, -30994.998)
+rotation = 8.84791
+
+[node name="Coin217" parent="Collectibles/Coins" unique_id=531147645 instance=ExtResource("5_iywne")]
+position = Vector2(1417.0006, -31457.998)
+rotation = 8.84791
+
+[node name="Coin218" parent="Collectibles/Coins" unique_id=540577920 instance=ExtResource("5_iywne")]
+position = Vector2(1652.0013, -31716)
+rotation = 8.84791
+
+[node name="Coin219" parent="Collectibles/Coins" unique_id=1941424883 instance=ExtResource("5_iywne")]
+position = Vector2(1218.9996, -31925)
+rotation = 8.84791
+
+[node name="Coin220" parent="Collectibles/Coins" unique_id=59969794 instance=ExtResource("5_iywne")]
+position = Vector2(785.99866, -32126)
+rotation = 8.84791
+
+[node name="Coin221" parent="Collectibles/Coins" unique_id=637530874 instance=ExtResource("5_iywne")]
+position = Vector2(398.9994, -32331)
+rotation = 8.84791
+
+[node name="Coin222" parent="Collectibles/Coins" unique_id=1281743200 instance=ExtResource("5_iywne")]
+position = Vector2(164.00159, -32596.998)
+rotation = 8.84791
+
+[node name="Coin223" parent="Collectibles/Coins" unique_id=1508771013 instance=ExtResource("5_iywne")]
+position = Vector2(791.00134, -32992)
+rotation = 8.84791
+
+[node name="Coin224" parent="Collectibles/Coins" unique_id=19726541 instance=ExtResource("5_iywne")]
+position = Vector2(1095.0006, -33182)
+rotation = 8.84791
+
+[node name="Coin225" parent="Collectibles/Coins" unique_id=43037349 instance=ExtResource("5_iywne")]
+position = Vector2(1414.0013, -33368)
+rotation = 8.84791
+
+[node name="Coin226" parent="Collectibles/Coins" unique_id=1075807067 instance=ExtResource("5_iywne")]
+position = Vector2(696.00037, -34082)
+rotation = 8.84791
+
+[node name="Coin229" parent="Collectibles/Coins" unique_id=147353243 instance=ExtResource("5_iywne")]
+position = Vector2(695.99963, -34173)
+rotation = 8.84791
+
+[node name="Coin236" parent="Collectibles/Coins" unique_id=145268685 instance=ExtResource("5_iywne")]
+position = Vector2(43.000122, -35384)
+rotation = 9.535316
+
+[node name="Coin239" parent="Collectibles/Coins" unique_id=1885427900 instance=ExtResource("5_iywne")]
+position = Vector2(459.99988, -35638)
+rotation = 9.535316
+
+[node name="Coin242" parent="Collectibles/Coins" unique_id=1955683556 instance=ExtResource("5_iywne")]
+position = Vector2(387.00012, -36778)
+rotation = 9.535316
+
+[node name="Coin249" parent="Collectibles/Coins" unique_id=207279176 instance=ExtResource("5_iywne")]
+position = Vector2(466.99988, -36888)
+rotation = 9.535316
+
+[node name="Coin250" parent="Collectibles/Coins" unique_id=1466278972 instance=ExtResource("5_iywne")]
+position = Vector2(382.99988, -36987)
+rotation = 9.535316
+
+[node name="Coin248" parent="Collectibles/Coins" unique_id=1863847899 instance=ExtResource("5_iywne")]
+position = Vector2(865.0001, -37051.004)
+rotation = 9.535316
+
+[node name="Coin251" parent="Collectibles/Coins" unique_id=1134699842 instance=ExtResource("5_iywne")]
+position = Vector2(1198.9999, -37321)
+rotation = 9.535316
+
+[node name="Coin252" parent="Collectibles/Coins" unique_id=543660641 instance=ExtResource("5_iywne")]
+position = Vector2(226.99988, -37556)
+rotation = 9.535316
+
+[node name="Coin253" parent="Collectibles/Coins" unique_id=2076541521 instance=ExtResource("5_iywne")]
+position = Vector2(1385.0001, -37829)
+rotation = 9.535316
+
+[node name="Coin254" parent="Collectibles/Coins" unique_id=1851666862 instance=ExtResource("5_iywne")]
+position = Vector2(937.00037, -38186.004)
+rotation = 9.535316
+
+[node name="Coin257" parent="Collectibles/Coins" unique_id=119199885 instance=ExtResource("5_iywne")]
+position = Vector2(557.0001, -38289)
+rotation = 9.535316
+
+[node name="Coin258" parent="Collectibles/Coins" unique_id=451083907 instance=ExtResource("5_iywne")]
+position = Vector2(230.00012, -38521)
+rotation = 9.535316
+
+[node name="Coin259" parent="Collectibles/Coins" unique_id=1989092605 instance=ExtResource("5_iywne")]
+position = Vector2(555.9999, -38782.996)
+rotation = 9.535316
+
+[node name="Coin260" parent="Collectibles/Coins" unique_id=1149777471 instance=ExtResource("5_iywne")]
+position = Vector2(1406.0004, -39045)
+rotation = 9.535316
+
+[node name="Coin261" parent="Collectibles/Coins" unique_id=394683450 instance=ExtResource("5_iywne")]
+position = Vector2(969.0001, -39372.004)
+rotation = 9.535316
+
+[node name="Coin264" parent="Collectibles/Coins" unique_id=455471094 instance=ExtResource("5_iywne")]
+position = Vector2(460.00012, -39471)
+rotation = 9.535316
+
+[node name="Coin265" parent="Collectibles/Coins" unique_id=809942640 instance=ExtResource("5_iywne")]
+position = Vector2(806.9999, -39730)
+rotation = 9.535316
+
+[node name="Coin266" parent="Collectibles/Coins" unique_id=1431983011 instance=ExtResource("5_iywne")]
+position = Vector2(195.00012, -40086)
+rotation = 9.535316
+
+[node name="Coin267" parent="Collectibles/Coins" unique_id=1904328050 instance=ExtResource("5_iywne")]
+position = Vector2(195.00037, -40181)
+rotation = 9.535316
+
+[node name="Coin268" parent="Collectibles/Coins" unique_id=1821287044 instance=ExtResource("5_iywne")]
+position = Vector2(195.00012, -40287)
+rotation = 9.535316
+
+[node name="Coin269" parent="Collectibles/Coins" unique_id=869535825 instance=ExtResource("5_iywne")]
+position = Vector2(1236.0004, -40257)
+rotation = 9.535316
+
+[node name="Coin272" parent="Collectibles/Coins" unique_id=2002779183 instance=ExtResource("5_iywne")]
+position = Vector2(944.0001, -40443)
+rotation = 9.535316
+
+[node name="Coin273" parent="Collectibles/Coins" unique_id=1765405729 instance=ExtResource("5_iywne")]
+position = Vector2(655.00037, -40644)
+rotation = 9.535316
+
+[node name="Coin274" parent="Collectibles/Coins" unique_id=65642033 instance=ExtResource("5_iywne")]
+position = Vector2(954.9994, -40871.996)
+rotation = 9.535316
+
+[node name="Coin275" parent="Collectibles/Coins" unique_id=392182451 instance=ExtResource("5_iywne")]
+position = Vector2(1235.9996, -41103.996)
+rotation = 9.535316
+
+[node name="Coin276" parent="Collectibles/Coins" unique_id=214879776 instance=ExtResource("5_iywne")]
+position = Vector2(1539.9999, -41303)
+rotation = 9.535316
+
+[node name="Coin277" parent="Collectibles/Coins" unique_id=898633673 instance=ExtResource("5_iywne")]
+position = Vector2(1270.9999, -41545)
+rotation = 9.535316
+
+[node name="Coin278" parent="Collectibles/Coins" unique_id=1641156372 instance=ExtResource("5_iywne")]
+position = Vector2(1210.0001, -41640)
+rotation = 9.535316
+
+[node name="Coin279" parent="Collectibles/Coins" unique_id=580688421 instance=ExtResource("5_iywne")]
+position = Vector2(1274.9999, -41723)
+rotation = 9.535316
+
+[node name="Coin280" parent="Collectibles/Coins" unique_id=1794428817 instance=ExtResource("5_iywne")]
+position = Vector2(568.99963, -41605)
+rotation = 9.535316
+
+[node name="Coin281" parent="Collectibles/Coins" unique_id=1054076471 instance=ExtResource("5_iywne")]
+position = Vector2(196.99988, -41525.004)
+rotation = 9.535316
+
+[node name="Coin284" parent="Collectibles/Coins" unique_id=1663618678 instance=ExtResource("5_iywne")]
+position = Vector2(1269.0001, -42100)
+rotation = 9.535316
+
+[node name="Coin285" parent="Collectibles/Coins" unique_id=1280214218 instance=ExtResource("5_iywne")]
+position = Vector2(1534.0001, -42292)
+rotation = 9.535316
+
+[node name="Coin286" parent="Collectibles/Coins" unique_id=1409189863 instance=ExtResource("5_iywne")]
+position = Vector2(1226.0004, -42478.004)
+rotation = 9.535316
+
+[node name="Coin287" parent="Collectibles/Coins" unique_id=570645959 instance=ExtResource("5_iywne")]
+position = Vector2(944.9999, -42679.004)
+rotation = 9.535316
+
+[node name="Coin288" parent="Collectibles/Coins" unique_id=1192337441 instance=ExtResource("5_iywne")]
+position = Vector2(716.9999, -42861)
+rotation = 9.535316
+
+[node name="Coin289" parent="Collectibles/Coins" unique_id=134581732 instance=ExtResource("5_iywne")]
+position = Vector2(945.0001, -43279)
+rotation = 9.535316
+
+[node name="Coin290" parent="Collectibles/Coins" unique_id=1292701736 instance=ExtResource("5_iywne")]
+position = Vector2(1169.0006, -43499)
+rotation = 9.535316
+
+[node name="Coin291" parent="Collectibles/Coins" unique_id=1856278000 instance=ExtResource("5_iywne")]
+position = Vector2(1609.0004, -43676)
+rotation = 9.535316
+
+[node name="Coin292" parent="Collectibles/Coins" unique_id=1042240357 instance=ExtResource("5_iywne")]
+position = Vector2(1719.0006, -43683.004)
+rotation = 9.535316
+
+[node name="Coin293" parent="Collectibles/Coins" unique_id=1368845916 instance=ExtResource("5_iywne")]
+position = Vector2(1498.9999, -43679)
+rotation = 9.535316
+
+[node name="Coin294" parent="Collectibles/Coins" unique_id=1297425468 instance=ExtResource("5_iywne")]
+position = Vector2(1611.0001, -43787)
+rotation = 9.535316
+
+[node name="Coin295" parent="Collectibles/Coins" unique_id=1329118805 instance=ExtResource("5_iywne")]
+position = Vector2(1216.0001, -43941)
+rotation = 9.535316
+
+[node name="Coin296" parent="Collectibles/Coins" unique_id=548896532 instance=ExtResource("5_iywne")]
+position = Vector2(953.9994, -44078)
+rotation = 9.535316
+
+[node name="Coin297" parent="Collectibles/Coins" unique_id=1083497342 instance=ExtResource("5_iywne")]
+position = Vector2(676.9999, -44219)
+rotation = 9.535316
+
+[node name="Coin298" parent="Collectibles/Coins" unique_id=211213999 instance=ExtResource("5_iywne")]
+position = Vector2(455.99988, -44371)
+rotation = 9.535316
+
+[node name="Coin299" parent="Collectibles/Coins" unique_id=1913937226 instance=ExtResource("5_iywne")]
+position = Vector2(94.99988, -44580)
+rotation = 9.535316
+
+[node name="Coin300" parent="Collectibles/Coins" unique_id=929784740 instance=ExtResource("5_iywne")]
+position = Vector2(317.99988, -45811)
+rotation = 9.535316
+
+[node name="Coin302" parent="Collectibles/Coins" unique_id=361964380 instance=ExtResource("5_iywne")]
+position = Vector2(88.99963, -45806)
+rotation = 9.535316
+
+[node name="Coin307" parent="Collectibles/Coins" unique_id=1775862232 instance=ExtResource("5_iywne")]
+position = Vector2(138.99939, -45693)
+rotation = 9.535316
+
+[node name="Coin308" parent="Collectibles/Coins" unique_id=2127778630 instance=ExtResource("5_iywne")]
+position = Vector2(263.99963, -45706)
+rotation = 9.535316
+
+[node name="Coin309" parent="Collectibles/Coins" unique_id=1591065709 instance=ExtResource("5_iywne")]
+position = Vector2(212.99988, -45597)
+rotation = 9.535316
+
+[node name="Coin314" parent="Collectibles/Coins" unique_id=208147550 instance=ExtResource("5_iywne")]
+position = Vector2(1370.0004, -45961)
+rotation = 9.535316
+
+[node name="Coin318" parent="Collectibles/Coins" unique_id=1847257199 instance=ExtResource("5_iywne")]
+position = Vector2(487.0006, -44761.004)
+rotation = 9.535316
+
+[node name="Coin319" parent="Collectibles/Coins" unique_id=1514358350 instance=ExtResource("5_iywne")]
+position = Vector2(761.0006, -45032.004)
+rotation = 9.535316
+
+[node name="Coin320" parent="Collectibles/Coins" unique_id=1543107204 instance=ExtResource("5_iywne")]
+position = Vector2(1064.9999, -45217.004)
+rotation = 9.535316
+
+[node name="Coin321" parent="Collectibles/Coins" unique_id=731203937 instance=ExtResource("5_iywne")]
+position = Vector2(1347.0004, -45380)
+rotation = 9.535316
+
+[node name="Coin322" parent="Collectibles/Coins" unique_id=744340114 instance=ExtResource("5_iywne")]
+position = Vector2(1601.0001, -45549)
+rotation = 9.535316
+
+[node name="Coin323" parent="Collectibles/Coins" unique_id=1524615990 instance=ExtResource("5_iywne")]
+position = Vector2(1858.0001, -45725.004)
+rotation = 9.535316
+
+[node name="Coin335" parent="Collectibles/Coins" unique_id=379961740 instance=ExtResource("5_iywne")]
+position = Vector2(1661.9999, -46230)
+rotation = 9.535316
+
+[node name="Coin336" parent="Collectibles/Coins" unique_id=286121326 instance=ExtResource("5_iywne")]
+position = Vector2(1410.9999, -46376)
+rotation = 9.535316
+
+[node name="Coin337" parent="Collectibles/Coins" unique_id=1482400699 instance=ExtResource("5_iywne")]
+position = Vector2(1160.0001, -46539.004)
+rotation = 9.535316
+
+[node name="Coin338" parent="Collectibles/Coins" unique_id=334571200 instance=ExtResource("5_iywne")]
+position = Vector2(918.00037, -46723)
+rotation = 9.535316
+
+[node name="Coin339" parent="Collectibles/Coins" unique_id=1304678788 instance=ExtResource("5_iywne")]
+position = Vector2(626.0001, -46903.004)
+rotation = 9.535316
+
+[node name="Coin340" parent="Collectibles/Coins" unique_id=311188524 instance=ExtResource("5_iywne")]
+position = Vector2(333.99988, -47158)
+rotation = 9.535316
+
+[node name="Coin341" parent="Collectibles/Coins" unique_id=303316497 instance=ExtResource("5_iywne")]
+position = Vector2(88.00012, -47333)
+rotation = 9.535316
+
+[node name="Coin342" parent="Collectibles/Coins" unique_id=74699825 instance=ExtResource("5_iywne")]
+position = Vector2(450.99988, -47534.004)
+rotation = 9.535316
+
+[node name="Coin343" parent="Collectibles/Coins" unique_id=1458415257 instance=ExtResource("5_iywne")]
+position = Vector2(734.99963, -47692.996)
+rotation = 9.535316
+
+[node name="Coin344" parent="Collectibles/Coins" unique_id=1246969624 instance=ExtResource("5_iywne")]
+position = Vector2(1043.9999, -47885)
+rotation = 9.535316
+
+[node name="Coin345" parent="Collectibles/Coins" unique_id=193736681 instance=ExtResource("5_iywne")]
+position = Vector2(1345.0001, -48090)
+rotation = 9.535316
+
+[node name="Coin346" parent="Collectibles/Coins" unique_id=35543094 instance=ExtResource("5_iywne")]
+position = Vector2(1345.0001, -48090)
+rotation = 9.899827
+
+[node name="Coin347" parent="Collectibles/Coins" unique_id=1258856238 instance=ExtResource("5_iywne")]
+position = Vector2(1595.9979, -48311)
+rotation = 9.899827
+
+[node name="Coin348" parent="Collectibles/Coins" unique_id=712749902 instance=ExtResource("5_iywne")]
+position = Vector2(1249.0001, -48503)
+rotation = 9.899827
+
+[node name="Coin349" parent="Collectibles/Coins" unique_id=1462848438 instance=ExtResource("5_iywne")]
+position = Vector2(784.9999, -48733)
+rotation = 9.899827
+
+[node name="Coin315" parent="Collectibles/Coins" unique_id=1133644495 instance=ExtResource("5_iywne")]
+position = Vector2(1449.0004, -45877)
+rotation = 9.535316
+
+[node name="Coin316" parent="Collectibles/Coins" unique_id=2040822481 instance=ExtResource("5_iywne")]
+position = Vector2(1281.9996, -45863.996)
+rotation = 9.535316
+
+[node name="Coin317" parent="Collectibles/Coins" unique_id=1912083274 instance=ExtResource("5_iywne")]
+position = Vector2(213.00037, -46311)
+rotation = 9.535316
+
+[node name="Coin334" parent="Collectibles/Coins" unique_id=1416919637 instance=ExtResource("5_iywne")]
+position = Vector2(206.99963, -46026.996)
+rotation = 9.535316
+
+[node name="Coin310" parent="Collectibles/Coins" unique_id=1934739530 instance=ExtResource("5_iywne")]
+position = Vector2(179.99963, -45138)
+rotation = 9.535316
+
+[node name="Coin311" parent="Collectibles/Coins" unique_id=205818218 instance=ExtResource("5_iywne")]
+position = Vector2(279.9994, -45133.996)
+rotation = 9.535316
+
+[node name="Coin312" parent="Collectibles/Coins" unique_id=1771311938 instance=ExtResource("5_iywne")]
+position = Vector2(87.99963, -45133.996)
+rotation = 9.535316
+
+[node name="Coin313" parent="Collectibles/Coins" unique_id=940035662 instance=ExtResource("5_iywne")]
+position = Vector2(183.99939, -45242.996)
+rotation = 9.535316
+
+[node name="Coin303" parent="Collectibles/Coins" unique_id=704599365 instance=ExtResource("5_iywne")]
+position = Vector2(259.99915, -45911.996)
+rotation = 9.535316
+
+[node name="Coin304" parent="Collectibles/Coins" unique_id=1558720393 instance=ExtResource("5_iywne")]
+position = Vector2(200.99988, -45806.996)
+rotation = 9.535316
+
+[node name="Coin305" parent="Collectibles/Coins" unique_id=1882572169 instance=ExtResource("5_iywne")]
+position = Vector2(1346.9996, -46881)
+rotation = 9.535316
+
+[node name="Coin326" parent="Collectibles/Coins" unique_id=544278584 instance=ExtResource("5_iywne")]
+position = Vector2(1487.0001, -46883.004)
+rotation = 9.535316
+
+[node name="Coin327" parent="Collectibles/Coins" unique_id=745035922 instance=ExtResource("5_iywne")]
+position = Vector2(1409.0001, -46805)
+rotation = 9.535316
+
+[node name="Coin328" parent="Collectibles/Coins" unique_id=262882864 instance=ExtResource("5_iywne")]
+position = Vector2(1338.0004, -47062.004)
+rotation = 9.535316
+
+[node name="Coin329" parent="Collectibles/Coins" unique_id=1017155023 instance=ExtResource("5_iywne")]
+position = Vector2(1281.0001, -46967)
+rotation = 9.535316
+
+[node name="Coin330" parent="Collectibles/Coins" unique_id=15837639 instance=ExtResource("5_iywne")]
+position = Vector2(102.99988, -46329)
+rotation = 9.535316
+
+[node name="Coin333" parent="Collectibles/Coins" unique_id=1122556302 instance=ExtResource("5_iywne")]
+position = Vector2(1543.0004, -46970)
+rotation = 9.535316
+
+[node name="Coin331" parent="Collectibles/Coins" unique_id=853769478 instance=ExtResource("5_iywne")]
+position = Vector2(1477.0001, -47058.004)
+rotation = 9.535316
+
+[node name="Coin332" parent="Collectibles/Coins" unique_id=1215243282 instance=ExtResource("5_iywne")]
+position = Vector2(331.00012, -46325.004)
+rotation = 9.535316
+
+[node name="Coin324" parent="Collectibles/Coins" unique_id=2057218209 instance=ExtResource("5_iywne")]
+position = Vector2(1410.0004, -46973.004)
+rotation = 9.535316
+
+[node name="Coin325" parent="Collectibles/Coins" unique_id=1544230769 instance=ExtResource("5_iywne")]
+position = Vector2(1409.9999, -47155)
+rotation = 9.535316
+
+[node name="Coin306" parent="Collectibles/Coins" unique_id=241587476 instance=ExtResource("5_iywne")]
+position = Vector2(142.99988, -45916)
+rotation = 9.535316
+
+[node name="Coin301" parent="Collectibles/Coins" unique_id=764071927 instance=ExtResource("5_iywne")]
+position = Vector2(183.00012, -44584)
+rotation = 9.535316
+
+[node name="Coin282" parent="Collectibles/Coins" unique_id=1805433774 instance=ExtResource("5_iywne")]
+position = Vector2(150.99963, -41419)
+rotation = 9.535316
+
+[node name="Coin283" parent="Collectibles/Coins" unique_id=869499177 instance=ExtResource("5_iywne")]
+position = Vector2(261.00037, -41419.004)
+rotation = 9.535316
+
+[node name="Coin270" parent="Collectibles/Coins" unique_id=705389869 instance=ExtResource("5_iywne")]
+position = Vector2(1506.0001, -39995)
+rotation = 9.535316
+
+[node name="Coin271" parent="Collectibles/Coins" unique_id=821119437 instance=ExtResource("5_iywne")]
+position = Vector2(1444.9996, -40093.996)
+rotation = 9.535316
+
+[node name="Coin262" parent="Collectibles/Coins" unique_id=1288007134 instance=ExtResource("5_iywne")]
+position = Vector2(1034.0001, -39281)
+rotation = 9.535316
+
+[node name="Coin263" parent="Collectibles/Coins" unique_id=815915161 instance=ExtResource("5_iywne")]
+position = Vector2(842.9999, -39279)
+rotation = 9.535316
+
+[node name="Coin255" parent="Collectibles/Coins" unique_id=890697545 instance=ExtResource("5_iywne")]
+position = Vector2(1023.9999, -38079.996)
+rotation = 9.535316
+
+[node name="Coin256" parent="Collectibles/Coins" unique_id=1707345401 instance=ExtResource("5_iywne")]
+position = Vector2(875.9999, -38079.996)
+rotation = 9.535316
+
+[node name="Coin243" parent="Collectibles/Coins" unique_id=582325325 instance=ExtResource("5_iywne")]
+position = Vector2(1366.0001, -36022)
+rotation = 9.535316
+
+[node name="Coin245" parent="Collectibles/Coins" unique_id=548630984 instance=ExtResource("5_iywne")]
+position = Vector2(310.99988, -36282.996)
+rotation = 9.535316
+
+[node name="Coin246" parent="Collectibles/Coins" unique_id=954425009 instance=ExtResource("5_iywne")]
+position = Vector2(258.00012, -36374.004)
+rotation = 9.535316
+
+[node name="Coin247" parent="Collectibles/Coins" unique_id=2056325772 instance=ExtResource("5_iywne")]
+position = Vector2(-42.000122, -36545)
+rotation = 9.535316
+
+[node name="Coin244" parent="Collectibles/Coins" unique_id=798494576 instance=ExtResource("5_iywne")]
+position = Vector2(212.00037, -36280)
+rotation = 9.535316
+
+[node name="Coin240" parent="Collectibles/Coins" unique_id=538985594 instance=ExtResource("5_iywne")]
+position = Vector2(400.00012, -35538)
+rotation = 9.535316
+
+[node name="Coin241" parent="Collectibles/Coins" unique_id=385832897 instance=ExtResource("5_iywne")]
+position = Vector2(518.9999, -35541)
+rotation = 9.535316
+
+[node name="Coin237" parent="Collectibles/Coins" unique_id=1772941152 instance=ExtResource("5_iywne")]
+position = Vector2(112.00012, -35301)
+rotation = 9.535316
+
+[node name="Coin238" parent="Collectibles/Coins" unique_id=1367369278 instance=ExtResource("5_iywne")]
+position = Vector2(-14.000122, -35294.004)
+rotation = 9.535316
+
+[node name="Coin235" parent="Collectibles/Coins" unique_id=1630691427 instance=ExtResource("5_iywne")]
+position = Vector2(141.99933, -34435.004)
+rotation = 9.0313
+
+[node name="Coin234" parent="Collectibles/Coins" unique_id=268540758 instance=ExtResource("5_iywne")]
+position = Vector2(137.99939, -34329)
+rotation = 8.84791
+
+[node name="Coin233" parent="Collectibles/Coins" unique_id=1644703322 instance=ExtResource("5_iywne")]
+position = Vector2(441.9994, -35050)
+rotation = 8.84791
+
+[node name="Coin231" parent="Collectibles/Coins" unique_id=1351305222 instance=ExtResource("5_iywne")]
+position = Vector2(95.99841, -34773)
+rotation = 6.8616257
+
+[node name="Coin232" parent="Collectibles/Coins" unique_id=1656660978 instance=ExtResource("5_iywne")]
+position = Vector2(-14.001343, -34773)
+rotation = 6.8616257
+
+[node name="Coin230" parent="Collectibles/Coins" unique_id=1212098521 instance=ExtResource("5_iywne")]
+position = Vector2(34.99939, -34868)
+rotation = 8.84791
+
+[node name="Coin227" parent="Collectibles/Coins" unique_id=919747465 instance=ExtResource("5_iywne")]
+position = Vector2(693.00037, -33991)
+rotation = 8.84791
+
+[node name="Coin228" parent="Collectibles/Coins" unique_id=1467039422 instance=ExtResource("5_iywne")]
+position = Vector2(693.00037, -33991)
+rotation = 8.84791
+
+[node name="Coin214" parent="Collectibles/Coins" unique_id=711657294 instance=ExtResource("5_iywne")]
+position = Vector2(739.0006, -30316)
+rotation = 8.84791
+
+[node name="Coin212" parent="Collectibles/Coins" unique_id=715334052 instance=ExtResource("5_iywne")]
+position = Vector2(1179.9994, -30077.998)
+rotation = 8.84791
+
+[node name="Coin213" parent="Collectibles/Coins" unique_id=1298341721 instance=ExtResource("5_iywne")]
+position = Vector2(449.0006, -30511)
+rotation = 8.84791
+
+[node name="Coin210" parent="Collectibles/Coins" unique_id=1896533737 instance=ExtResource("5_iywne")]
+position = Vector2(1115.9996, -30171.998)
+rotation = 8.84791
+
+[node name="Coin211" parent="Collectibles/Coins" unique_id=1340992816 instance=ExtResource("5_iywne")]
+position = Vector2(1051.9994, -30078)
+rotation = 8.84791
+
+[node name="Coin209" parent="Collectibles/Coins" unique_id=956674679 instance=ExtResource("5_iywne")]
+position = Vector2(1584.9996, -29844.998)
+rotation = 8.84791
+
+[node name="Coin200" parent="Collectibles/Coins" unique_id=313827957 instance=ExtResource("5_iywne")]
+position = Vector2(1245.9996, -28305)
+rotation = 8.84791
+
+[node name="Coin197" parent="Collectibles/Coins" unique_id=525485251 instance=ExtResource("5_iywne")]
+position = Vector2(885.99963, -27989)
+rotation = 8.84791
+
+[node name="Coin196" parent="Collectibles/Coins" unique_id=1402106938 instance=ExtResource("5_iywne")]
+position = Vector2(161.99963, -27586)
+rotation = 8.84791
+
+[node name="Coin195" parent="Collectibles/Coins" unique_id=684227926 instance=ExtResource("5_iywne")]
+position = Vector2(426.99963, -27361)
+rotation = 8.84791
+
+[node name="Coin192" parent="Collectibles/Coins" unique_id=34900631 instance=ExtResource("5_iywne")]
+position = Vector2(1286.0001, -26299)
+rotation = 7.9942074
+
+[node name="Coin187" parent="Collectibles/Coins" unique_id=1503607109 instance=ExtResource("5_iywne")]
+position = Vector2(781.0001, -26552.002)
+rotation = 7.9942074
+
+[node name="Coin188" parent="Collectibles/Coins" unique_id=917368624 instance=ExtResource("5_iywne")]
+position = Vector2(976.0001, -26552.002)
+rotation = 7.9942074
+
+[node name="Coin182" parent="Collectibles/Coins" unique_id=709025709 instance=ExtResource("5_iywne")]
+position = Vector2(744.9999, -25075.002)
+rotation = 10.178899
+
+[node name="Coin183" parent="Collectibles/Coins" unique_id=1142185668 instance=ExtResource("5_iywne")]
+position = Vector2(403.00012, -25275)
+rotation = 10.178899
+
+[node name="Coin184" parent="Collectibles/Coins" unique_id=379847040 instance=ExtResource("5_iywne")]
+position = Vector2(99.000854, -25506)
+rotation = 10.178899
+
+[node name="Coin185" parent="Collectibles/Coins" unique_id=1960994898 instance=ExtResource("5_iywne")]
+position = Vector2(507.99988, -25720)
+rotation = 10.178899
+
+[node name="Coin151" parent="Collectibles/Coins" unique_id=2049628413 instance=ExtResource("5_iywne")]
+position = Vector2(1162.0005, -19988.002)
+rotation = -2.8838556
+
+[node name="Coin144" parent="Collectibles/Coins" unique_id=1618249293 instance=ExtResource("5_iywne")]
+position = Vector2(1173.9995, -18879.998)
+rotation = -2.8838556
+
+[node name="Coin138" parent="Collectibles/Coins" unique_id=1883166335 instance=ExtResource("5_iywne")]
+position = Vector2(321.00055, -18090)
+rotation = -2.8838556
+
+[node name="Coin137" parent="Collectibles/Coins" unique_id=1515646802 instance=ExtResource("5_iywne")]
+position = Vector2(330, -18001.998)
+rotation = -2.8838556
+
+[node name="Coin135" parent="Collectibles/Coins" unique_id=218043132 instance=ExtResource("5_iywne")]
+position = Vector2(342, -17553.998)
+rotation = -2.8838556
+
+[node name="Coin123" parent="Collectibles/Coins" unique_id=120080788 instance=ExtResource("5_iywne")]
+position = Vector2(1499.0001, -15600)
+rotation = -2.8838556
+
+[node name="Coin116" parent="Collectibles/Coins" unique_id=872669826 instance=ExtResource("5_iywne")]
+position = Vector2(948.99994, -14548)
+rotation = -2.8838556
+
+[node name="Coin115" parent="Collectibles/Coins" unique_id=2135656920 instance=ExtResource("5_iywne")]
+position = Vector2(1055, -14449)
+rotation = -2.8838556
+
+[node name="Coin114" parent="Collectibles/Coins" unique_id=1971546549 instance=ExtResource("5_iywne")]
+position = Vector2(834.99994, -14446)
+rotation = -2.8838556
+
+[node name="Coin86" parent="Collectibles/Coins" unique_id=924306613 instance=ExtResource("5_iywne")]
+position = Vector2(420, -11153)
+
+[node name="Coin87" parent="Collectibles/Coins" unique_id=2105043198 instance=ExtResource("5_iywne")]
+position = Vector2(473, -11234)
+
+[node name="Coin84" parent="Collectibles/Coins" unique_id=1459769731 instance=ExtResource("5_iywne")]
+position = Vector2(895, -10896)
+
+[node name="Coin85" parent="Collectibles/Coins" unique_id=1258438224 instance=ExtResource("5_iywne")]
+position = Vector2(999, -10893)
+
+[node name="Coin82" parent="Collectibles/Coins" unique_id=776359002 instance=ExtResource("5_iywne")]
+position = Vector2(390, -10655)
+
+[node name="Coin80" parent="Collectibles/Coins" unique_id=676440604 instance=ExtResource("5_iywne")]
+position = Vector2(402, -10557)
+
+[node name="Coin77" parent="Collectibles/Coins" unique_id=887311187 instance=ExtResource("5_iywne")]
+position = Vector2(508, -10051)
+
+[node name="Coin71" parent="Collectibles/Coins" unique_id=814117961 instance=ExtResource("5_iywne")]
+position = Vector2(574, -9499)
+
+[node name="Coin67" parent="Collectibles/Coins" unique_id=1020810605 instance=ExtResource("5_iywne")]
+position = Vector2(1151, -9257)
+
+[node name="Coin68" parent="Collectibles/Coins" unique_id=1134315563 instance=ExtResource("5_iywne")]
+position = Vector2(1224, -9206)
+
+[node name="Coin63" parent="Collectibles/Coins" unique_id=1937018115 instance=ExtResource("5_iywne")]
+position = Vector2(1356, -8752)
+
+[node name="Coin49" parent="Collectibles/Coins" unique_id=2135600775 instance=ExtResource("5_iywne")]
+position = Vector2(232, -7281)
+
+[node name="Coin47" parent="Collectibles/Coins" unique_id=850060885 instance=ExtResource("5_iywne")]
+position = Vector2(680, -6837)
+
+[node name="Coin42" parent="Collectibles/Coins" unique_id=1936429312 instance=ExtResource("5_iywne")]
+position = Vector2(1453, -6519)
+
+[node name="Coin43" parent="Collectibles/Coins" unique_id=269028605 instance=ExtResource("5_iywne")]
+position = Vector2(1287, -6510)
+
+[node name="Coin44" parent="Collectibles/Coins" unique_id=1983321187 instance=ExtResource("5_iywne")]
+position = Vector2(1322, -5652)
+
+[node name="Coin30" parent="Collectibles/Coins" unique_id=1925855896 instance=ExtResource("5_iywne")]
+position = Vector2(1368, -4646)
+
+[node name="Coin31" parent="Collectibles/Coins" unique_id=289402296 instance=ExtResource("5_iywne")]
+position = Vector2(1355, -4420)
+
+[node name="Coin16" parent="Collectibles/Coins" unique_id=445112983 instance=ExtResource("5_iywne")]
+position = Vector2(576, -987)
+
+[node name="Coin11" parent="Collectibles/Coins" unique_id=838154202 instance=ExtResource("5_iywne")]
+position = Vector2(852, -1110)
+
+[node name="Coin13" parent="Collectibles/Coins" unique_id=224270360 instance=ExtResource("5_iywne")]
+position = Vector2(1040, -1113)
+
+[node name="Coin12" parent="Collectibles/Coins" unique_id=1774287288 instance=ExtResource("5_iywne")]
+position = Vector2(937, -1232)
+
+[node name="Coin14" parent="Collectibles/Coins" unique_id=289308740 instance=ExtResource("5_iywne")]
+position = Vector2(429, -1345)
+
+[node name="Coin15" parent="Collectibles/Coins" unique_id=747370557 instance=ExtResource("5_iywne")]
+position = Vector2(407, -853)
+
+[node name="Coin8" parent="Collectibles/Coins" unique_id=307657708 instance=ExtResource("5_iywne")]
+position = Vector2(320, -360)
+
+[node name="Coin9" parent="Collectibles/Coins" unique_id=1783030008 instance=ExtResource("5_iywne")]
+position = Vector2(173, -360)
+
+[node name="Coin6" parent="Collectibles/Coins" unique_id=702906352 instance=ExtResource("5_iywne")]
+position = Vector2(930, -151)
+
+[node name="Coin2" parent="Collectibles/Coins" unique_id=948006011 instance=ExtResource("5_iywne")]
+position = Vector2(762, -512)
+
+[node name="Coin3" parent="Collectibles/Coins" unique_id=1490682294 instance=ExtResource("5_iywne")]
+position = Vector2(868, -517)
+
+[node name="Orange_Carrot" type="Node2D" parent="Collectibles" unique_id=192023451]
+
+[node name="HealthPowerUp" parent="Collectibles/Orange_Carrot" unique_id=128816736 instance=ExtResource("13_ca42v")]
+position = Vector2(1425, -23144)
+
+[node name="HealthPowerUp2" parent="Collectibles/Orange_Carrot" unique_id=2039453090 instance=ExtResource("13_ca42v")]
+position = Vector2(-62, -24591)
+
+[node name="HealthPowerUp3" parent="Collectibles/Orange_Carrot" unique_id=1335657925 instance=ExtResource("13_ca42v")]
+position = Vector2(34, -40923)
+
+[node name="HealthPowerUp4" parent="Collectibles/Orange_Carrot" unique_id=789484043 instance=ExtResource("13_ca42v")]
+position = Vector2(446, -43032)
+
+[node name="Gold_Carrot" type="Node2D" parent="Collectibles" unique_id=632776124]
+
+[node name="FullHealthPowerUp" parent="Collectibles/Gold_Carrot" unique_id=1055967597 instance=ExtResource("14_rysoc")]
+position = Vector2(1347, -27427)
+
+[node name="FullHealthPowerUp2" parent="Collectibles/Gold_Carrot" unique_id=2097329114 instance=ExtResource("14_rysoc")]
+position = Vector2(1594, -19842)
+
+[node name="JetpackItem" parent="Collectibles" unique_id=679273608 instance=ExtResource("22_suyxu")]
+position = Vector2(-27, -44583)
+
+[node name="Enemies" type="Node2D" parent="." unique_id=121018674]
+
+[node name="EnemyHeli" type="Node2D" parent="Enemies" unique_id=1514668054]
+
+[node name="EnemyHelicopter2" parent="Enemies/EnemyHeli" unique_id=1564974907 instance=ExtResource("7_u5sy4")]
+position = Vector2(101, -1676)
+
+[node name="EnemyHelicopter" parent="Enemies/EnemyHeli" unique_id=1168145510 instance=ExtResource("7_u5sy4")]
+position = Vector2(176, -828)
+
+[node name="EnemyHelicopter8" parent="Enemies/EnemyHeli" unique_id=593179058 instance=ExtResource("7_u5sy4")]
+position = Vector2(809, -17771)
+
+[node name="EnemyHelicopter9" parent="Enemies/EnemyHeli" unique_id=424035748 instance=ExtResource("7_u5sy4")]
+position = Vector2(714, -21185)
+
+[node name="EnemyHelicopter10" parent="Enemies/EnemyHeli" unique_id=669224066 instance=ExtResource("7_u5sy4")]
+position = Vector2(428, -25756)
+
+[node name="EnemyHelicopter7" parent="Enemies/EnemyHeli" unique_id=1342816947 instance=ExtResource("7_u5sy4")]
+position = Vector2(140, -6031)
+
+[node name="EnemyHelicopter5" parent="Enemies/EnemyHeli" unique_id=1256779285 instance=ExtResource("7_u5sy4")]
+position = Vector2(745, -4702)
+
+[node name="EnemyHelicopter4" parent="Enemies/EnemyHeli" unique_id=1201132300 instance=ExtResource("7_u5sy4")]
+position = Vector2(710, -3698)
+
+[node name="EnemyHelicopter6" parent="Enemies/EnemyHeli" unique_id=1472052285 instance=ExtResource("7_u5sy4")]
+position = Vector2(843, -5247)
+
+[node name="EnemyHelicopter3" parent="Enemies/EnemyHeli" unique_id=947359127 instance=ExtResource("7_u5sy4")]
+position = Vector2(95, -2579)
+
+[node name="EnemySpike" type="Node2D" parent="Enemies" unique_id=1633964056]
+
+[node name="EnemySpikeman" parent="Enemies/EnemySpike" unique_id=99103805 instance=ExtResource("11_kvpfn")]
+position = Vector2(690, -7959)
+
+[node name="EnemySpikeman2" parent="Enemies/EnemySpike" unique_id=1578353724 instance=ExtResource("11_kvpfn")]
+position = Vector2(1398, -9244)
+
+[node name="EnemySpikeman3" parent="Enemies/EnemySpike" unique_id=1662396212 instance=ExtResource("11_kvpfn")]
+position = Vector2(305, -10598)
+
+[node name="EnemySpikeman4" parent="Enemies/EnemySpike" unique_id=336718459 instance=ExtResource("11_kvpfn")]
+position = Vector2(1127, -12009)
+
+[node name="EnemySpikeman5" parent="Enemies/EnemySpike" unique_id=103363440 instance=ExtResource("11_kvpfn")]
+position = Vector2(1534, -15634)
+
+[node name="EnemySpikeman6" parent="Enemies/EnemySpike" unique_id=814297314 instance=ExtResource("11_kvpfn")]
+position = Vector2(657, -16660)
+
+[node name="EnemySpikeman7" parent="Enemies/EnemySpike" unique_id=1976364922 instance=ExtResource("11_kvpfn")]
+position = Vector2(1069, -19362)
+
+[node name="EnemySpikeman8" parent="Enemies/EnemySpike" unique_id=1336800625 instance=ExtResource("11_kvpfn")]
+position = Vector2(1170, -22845)
+
+[node name="EnemySpikeman9" parent="Enemies/EnemySpike" unique_id=2138735466 instance=ExtResource("11_kvpfn")]
+position = Vector2(906, -35788)
+
+[node name="EnemySpikeman10" parent="Enemies/EnemySpike" unique_id=731945295 instance=ExtResource("11_kvpfn")]
+position = Vector2(1637, -40035)
+
+[node name="EnemySpikeman11" parent="Enemies/EnemySpike" unique_id=540138584 instance=ExtResource("11_kvpfn")]
+position = Vector2(930, -41873)
+
+[node name="EnemySpikeman12" parent="Enemies/EnemySpike" unique_id=341771836 instance=ExtResource("11_kvpfn")]
+position = Vector2(796, -43262)
+
+[node name="EnemyWingman" type="Node2D" parent="Enemies" unique_id=694583034]
+
+[node name="EnemyHelicopter" parent="Enemies/EnemyWingman" unique_id=861609093 instance=ExtResource("17_ssvqc")]
+position = Vector2(-367, -26572)
+
+[node name="EnemyHelicopter2" parent="Enemies/EnemyWingman" unique_id=529286802 instance=ExtResource("17_ssvqc")]
+position = Vector2(1470, -28853)
+
+[node name="EnemyHelicopter3" parent="Enemies/EnemyWingman" unique_id=2120260148 instance=ExtResource("17_ssvqc")]
+position = Vector2(-117, -29644)
+
+[node name="EnemyHelicopter5" parent="Enemies/EnemyWingman" unique_id=1436252797 instance=ExtResource("17_ssvqc")]
+position = Vector2(161, -41159)
+
+[node name="EnemyHelicopter6" parent="Enemies/EnemyWingman" unique_id=543855873 instance=ExtResource("17_ssvqc")]
+position = Vector2(-190, -45876)
+
+[node name="EnemyHelicopter7" parent="Enemies/EnemyWingman" unique_id=360633212 instance=ExtResource("17_ssvqc")]
+position = Vector2(2020, -47034)
+
+[node name="EnemyHelicopter8" parent="Enemies/EnemyWingman" unique_id=1302070182 instance=ExtResource("17_ssvqc")]
+position = Vector2(-61, -48204)
+
+[node name="EnemyHelicopter4" parent="Enemies/EnemyWingman" unique_id=1875950331 instance=ExtResource("17_ssvqc")]
+position = Vector2(347, -31539)
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1555938589]
+
+[node name="HealthLabel" type="Label" parent="UI" unique_id=1861033593]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Health: 3 "
+
+[node name="ScoreLabel" type="Label" parent="UI" unique_id=1013600095]
+anchors_preset = -1
+offset_left = 114.0
+offset_top = -1.0
+offset_right = 166.0
+offset_bottom = 22.0
+text = "Score: "
+
+[node name="Environment" type="Node2D" parent="." unique_id=36543854]
+
+[node name="Items" type="Node2D" parent="." unique_id=960084607]
+
+[node name="Spring" parent="Items" unique_id=2124336456 instance=ExtResource("15_ir15t")]
+position = Vector2(275, -18910)
+
+[node name="Spring2" parent="Items" unique_id=1301648551 instance=ExtResource("15_ir15t")]
+position = Vector2(-56, -23850)
+jump_strength = -1900.0
+
+[node name="Spring4" parent="Items" unique_id=1756713219 instance=ExtResource("15_ir15t")]
+position = Vector2(1372, -26773)
+jump_strength = -1900.0
+
+[node name="Spring3" parent="Items" unique_id=2137486258 instance=ExtResource("15_ir15t")]
+position = Vector2(684, -33874)
+jump_strength = -1900.0
+
+[node name="Spring5" parent="Items" unique_id=767420500 instance=ExtResource("15_ir15t")]
+position = Vector2(187, -39970)
+jump_strength = -1900.0
+
+[node name="Windzone" parent="." unique_id=1416071724 instance=ExtResource("22_37s47")]
+position = Vector2(759, -28217)
+
+[node name="Windzone2" parent="." unique_id=1692013729 instance=ExtResource("22_37s47")]
+position = Vector2(754, -31722)
+
+[node name="Windzone3" parent="." unique_id=1520540655 instance=ExtResource("22_37s47")]
+position = Vector2(738, -34890)
+
+[node name="SnowStart" parent="." unique_id=1189107431 instance=ExtResource("24_e1j6l")]
+position = Vector2(912, -26243)
+
+[node name="SnowStart2" parent="." unique_id=636882980 instance=ExtResource("24_e1j6l")]
+position = Vector2(793, -35065)
+
+[node name="SnowEnd" parent="." unique_id=1883511727 instance=ExtResource("25_pl11u")]
+position = Vector2(933, -26145)
+
+[node name="SnowEnd2" parent="." unique_id=781956442 instance=ExtResource("25_pl11u")]
+position = Vector2(841, -35149)
+
+[node name="FinishArea" parent="." unique_id=708598309 instance=ExtResource("30_sgl2t")]
+position = Vector2(557, -48931)
+
+[editable path="player"]

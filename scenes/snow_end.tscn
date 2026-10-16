@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bp7yxkwxeuv8w"]
+
+[ext_resource type="Script" uid="uid://cmhxlkd0cqr01" path="res://scenes/snow_end.gd" id="1_sx17e"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcsta"]
+size = Vector2(2354, 10)
+
+[node name="SnowEnd" type="Area2D" unique_id=1883511727]
+script = ExtResource("1_sx17e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1619820903]
+shape = SubResource("RectangleShape2D_qcsta")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bk0osgokljofy"]
+
+[ext_resource type="Script" uid="uid://4liys0jsdcln" path="res://scenes/platform_snow.gd" id="1_eryb7"]
+[ext_resource type="Texture2D" uid="uid://iryuaf7mv4x2" path="res://assets/PNG/Environment/ground_snow_small.png" id="2_eryb7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfxs"]
+size = Vector2(162, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcsta"]
+size = Vector2(194, 21)
+
+[node name="Platform_snow_normal" type="StaticBody2D" unique_id=374772248]
+collision_layer = 2
+script = ExtResource("1_eryb7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=404043972]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=581013789]
+position = Vector2(-1, -8)
+shape = SubResource("RectangleShape2D_hcfxs")
+
+[node name="IceArea" type="Area2D" parent="." unique_id=2122413628]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="IceArea" unique_id=367578307]
+position = Vector2(0, -40.5)
+shape = SubResource("RectangleShape2D_qcsta")
+
+[node name="GroundSnowSmall" type="Sprite2D" parent="." unique_id=272178116]
+texture = ExtResource("2_eryb7")
+
+[connection signal="body_entered" from="IceArea" to="." method="_on_ice_area_body_entered"]
+[connection signal="body_exited" from="IceArea" to="." method="_on_ice_area_body_exited"]

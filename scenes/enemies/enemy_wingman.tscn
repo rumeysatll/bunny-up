@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://dmvbqf6w20ufs"]
+
+[ext_resource type="Texture2D" uid="uid://b8p407wic02yo" path="res://assets/PNG/Enemies/wingMan2.png" id="1_nd2vv"]
+[ext_resource type="Script" uid="uid://cp0jj7tp64i6k" path="res://scenes/enemies/enemy_wingman.gd" id="1_xjsiy"]
+[ext_resource type="Texture2D" uid="uid://b0v7dwtkhgptd" path="res://assets/PNG/Enemies/wingMan3.png" id="2_xjsiy"]
+[ext_resource type="Texture2D" uid="uid://gat477oyciig" path="res://assets/PNG/Enemies/wingMan4.png" id="3_ydg88"]
+[ext_resource type="Texture2D" uid="uid://cx1c2fgipe04c" path="res://assets/PNG/Enemies/wingMan5.png" id="4_dqeul"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hcfxs"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_nd2vv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_xjsiy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ydg88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_dqeul")
+}],
+"loop": 1,
+"name": &"fly",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3hbkf"]
+radius = 38.0
+height = 136.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hcfxs"]
+radius = 82.006096
+
+[node name="Enemywingman" type="CharacterBody2D" unique_id=1168145510]
+collision_layer = 4
+script = ExtResource("1_xjsiy")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1718656371]
+sprite_frames = SubResource("SpriteFrames_hcfxs")
+animation = &"fly"
+frame_progress = 0.92663133
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=202934534]
+shape = SubResource("CapsuleShape2D_3hbkf")
+
+[node name="DamageArea" type="Area2D" parent="." unique_id=563374207]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea" unique_id=1963744310]
+shape = SubResource("CircleShape2D_hcfxs")
+
+[connection signal="body_entered" from="DamageArea" to="." method="_on_damage_area_body_entered"]

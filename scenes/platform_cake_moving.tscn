@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://c46yj75bmrd6r"]
+
+[ext_resource type="Script" uid="uid://js1mixlv7vnj" path="res://scenes/platform_grass_moving.gd" id="1_yroaa"]
+[ext_resource type="Texture2D" uid="uid://bt1mgyhnfi8bt" path="res://assets/PNG/Environment/ground_cake_small.png" id="2_yroaa"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcfxs"]
+size = Vector2(176, 88)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouqfm"]
+size = Vector2(174, 36)
+
+[node name="Platform_cake_moving" type="AnimatableBody2D" unique_id=286303182]
+collision_layer = 2
+script = ExtResource("1_yroaa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=364262895]
+position = Vector2(-3, -1)
+shape = SubResource("RectangleShape2D_hcfxs")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=162123722]
+texture = ExtResource("2_yroaa")
+
+[node name="DetectionArea" type="Area2D" parent="." unique_id=540128303]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea" unique_id=1029259249]
+position = Vector2(1, -31)
+shape = SubResource("RectangleShape2D_ouqfm")
+
+[node name="ActiveTimer" type="Timer" parent="." unique_id=1600769939]
+wait_time = 7.0
+one_shot = true
+
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="timeout" from="ActiveTimer" to="." method="_on_active_timer_timeout"]

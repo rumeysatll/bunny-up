@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://drldtfid25hj6"]
+
+[ext_resource type="Script" uid="uid://pxd80wxerrwr" path="res://scenes/collectibles/health_full_power_up.gd" id="1_bl24n"]
+[ext_resource type="Texture2D" uid="uid://debfebdlg25hm" path="res://assets/PNG/Items/carrot_gold.png" id="2_s6l4m"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_h14wj"]
+radius = 11.939062
+height = 71.333664
+
+[sub_resource type="Gradient" id="Gradient_bl24n"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_bl24n"]
+gradient = SubResource("Gradient_bl24n")
+fill_from = Vector2(0.08260869, 0.1)
+fill_to = Vector2(0.9217391, 0.7826087)
+
+[node name="FullHealthPowerUp" type="Area2D" unique_id=128816736]
+script = ExtResource("1_bl24n")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=520172670]
+texture = ExtResource("2_s6l4m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=529286404]
+position = Vector2(4, 2)
+skew = -0.7539823
+shape = SubResource("CapsuleShape2D_h14wj")
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=1068651503]
+position = Vector2(9.369334, 9.113147)
+rotation = 5.4733524
+scale = Vector2(0.34817773, 1.1342107)
+color = Color(1, 0.92941177, 0.8156863, 1)
+texture = SubResource("GradientTexture2D_bl24n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
